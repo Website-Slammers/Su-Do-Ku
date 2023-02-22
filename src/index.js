@@ -2,11 +2,17 @@ import React from 'react';
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
-const router = createBrowserRouter([
+import Home from './components/Home'
+import App from './components/App'
+import Errorpage from './components/Errorpage';
+
+const appElement = document.getElementById('app');
+const root = createRoot(appElement);
+export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
-        errorElement: <ErrorPage />,
+        errorElement: <Errorpage />,
         children:[
             {
                 index: true,
@@ -16,6 +22,4 @@ const router = createBrowserRouter([
     }
 ])
 
-const root = createRoot( document.getElementById("app"));
 root.render( <RouterProvider router={router}/>);
-
