@@ -1,3 +1,15 @@
 *{
     background-color: rgb(151, 75, 12);
 }
+
+.flex-box{
+    display:flex;
+
+}
+.puzzle{
+    justify-content:center
+}
+
+.puzzle__row{
+
+}
