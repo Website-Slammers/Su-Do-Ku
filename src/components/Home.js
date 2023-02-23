@@ -6,7 +6,7 @@ const Home = () =>{
     return(
         <div>
             Homepage
-            <Puzzle />
+
             
         </div>
     )

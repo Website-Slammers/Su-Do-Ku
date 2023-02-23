@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom'; //import link from the legend of zelda
 const Navbar = ()=>{
     return(
         <div id='nav-return'>
-            Navbar
+            <nav>
+                <Link to="/">Home</Link>
+                <Link to="play">Play</Link>
+            </nav>
         </div>
     )
 }
