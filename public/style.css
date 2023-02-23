@@ -1,3 +1,29 @@
 *{
     background-color: rgb(151, 75, 12);
 }
+
+.flex-box{
+    display:flex;
+
+}
+.puzzle{
+    justify-content:center
+}
+
+.puzzle__row{
+    display: flex;
+    background-color:rgb(233, 206, 169);
+    flex-direction: row;
+    padding:10px;
+    
+}
+
+.number__box{
+    display: flex;
+    padding:20px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background-color:white;
+    border: black solid 2px;
+    margin: 3px 6px;
+}
