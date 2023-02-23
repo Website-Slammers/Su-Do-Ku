@@ -30,12 +30,14 @@ body {
   font-size: 16px; }
 
 .heading-primary {
-  font-size: 25rem;
+  font-size: 15rem;
   font-family: "Comfortaa", cursive;
   font-weight: 300;
   letter-spacing: .5rem;
   color: #fff;
   display: inline-block; }
+  .heading-primary--home {
+    font-size: 25rem; }
 
 .flex-box {
   display: flex;
@@ -77,6 +79,22 @@ body {
       border-left: 5px solid #000; }
     .puzzle__number-box:last-of-type {
       border-right: 5px solid #000; }
+
+.header {
+  height: 20vh;
+  background-image: linear-gradient(to right bottom, rgba(255, 192, 203, 0.8), rgba(154, 205, 50, 0.8)), url("https://i.imgur.com/efHBmNO.png");
+  background-size: cover;
+  background-position: 0 0;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden; }
+  .header__textbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 300px; }
 
 .home {
   height: 100vh;

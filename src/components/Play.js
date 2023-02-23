@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Header from './Header'
 import Navbar from './Navbar'
 import Puzzle from './Puzzle'
 
@@ -8,6 +9,7 @@ function Play() {
 
     <div id="play-return">
 
+      <Header />
       <Navbar />
 
       <h2 className="heading-secondary">Play Sudoku Now</h2>

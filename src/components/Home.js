@@ -9,7 +9,7 @@ const Home = () =>{
         <div className="home">
             
         <div className="home__textbox">
-            <h1 className="heading-primary">
+            <h1 className="heading-primary heading-primary--home">
                 <span className="heading-primary--main">Sudoku</span>
                 {/* <span className="heading-primary--sub">Plight of the Sunseekers</span> */}
             </h1>
