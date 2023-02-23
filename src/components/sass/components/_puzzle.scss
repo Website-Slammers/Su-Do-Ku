@@ -1,12 +1,10 @@
 .puzzle {
   width: 90rem;
 
-
   &__row {
     font-size: 3.5rem;
     flex: 0 0 100%;
     background-color: transparent;
-
 
     display: flex;
     flex-direction: row;
@@ -15,7 +13,6 @@
     gap: 0;
 
     // Borders
-
     &:first-of-type {
       border-top: 5px solid $color-black;
     }
