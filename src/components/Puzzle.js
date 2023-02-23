@@ -45,7 +45,7 @@ const Puzzle =()=>{
                                 {
                                     row.map((column, idx)=>{
                                         return(
-                                            <div>  {column}  </div>
+                                            <div className='number__box'>  {column}  </div>
                                         )
                                     })
                                 }
