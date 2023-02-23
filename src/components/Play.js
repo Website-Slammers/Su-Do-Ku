@@ -5,6 +5,7 @@ import Puzzle from './Puzzle'
 
 function Play() {
   return (
+
     <div id="play-return">
 
       <Navbar />

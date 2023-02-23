@@ -5,6 +5,7 @@ import Puzzle from './Puzzle'
 
 const Home = () =>{
     return(
+
         <div className="home">
             
         <div className="home__textbox">
@@ -20,6 +21,7 @@ const Home = () =>{
             <a href="#" className="btn">
                 Sign-In</a>
         </div>
+
 
             
         </div>
