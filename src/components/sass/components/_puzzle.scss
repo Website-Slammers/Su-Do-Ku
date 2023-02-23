@@ -1,0 +1,19 @@
+.puzzle {
+  justify-content: center;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    background-color: $color-puzzle-default;
+  }
+
+  &__number-box {
+    display: flex;
+    padding: 2rem;
+    background-color: $color-white;
+    border: 2px solid $color-black;
+    margin: .3rem .6rem;
+  }
+}
+
