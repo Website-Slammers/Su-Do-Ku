@@ -18,15 +18,37 @@ body {
   background-color: green; }
 
 .puzzle {
-  justify-content: center; }
+  width: 90rem; }
   .puzzle__row {
+    font-size: 3.5rem;
+    flex: 0 0 100%;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
-    padding: 1rem;
-    background-color: #e9cea9; }
+    justify-content: center;
+    align-items: center;
+    gap: 0; }
+    .puzzle__row:first-of-type {
+      border-top: 5px solid #000; }
+    .puzzle__row:last-of-type {
+      border-bottom: 5px solid #000; }
+    .puzzle__row:nth-child(3) {
+      border-bottom: 5px solid #000; }
+    .puzzle__row:nth-child(6) {
+      border-bottom: 5px solid #000; }
   .puzzle__number-box {
-    display: flex;
-    padding: 2rem;
-    background-color: #fff;
-    border: 2px solid #000;
-    margin: .3rem .6rem; }
+    box-sizing: border-box;
+    padding: 2.5rem;
+    width: 11.11111rem;
+    height: 9.5rem;
+    background-color: #e9cea9;
+    border: 0.5px solid #000;
+    text-align: center; }
+    .puzzle__number-box:nth-child(3) {
+      border-right: 5px solid #000; }
+    .puzzle__number-box:nth-child(6) {
+      border-right: 5px solid #000; }
+    .puzzle__number-box:first-of-type {
+      border-left: 5px solid #000; }
+    .puzzle__number-box:last-of-type {
+      border-right: 5px solid #000; }
