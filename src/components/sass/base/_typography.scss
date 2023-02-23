@@ -1,0 +1,23 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  // font-size: $default-font-size;
+  font-size: 16px;
+  // line-height: 1.7rem;
+  // color: $color-grey--dark;
+}
+
+.heading-primary {
+  font-size: 15rem;
+  font-family: $font-header;
+  font-weight: 300;
+  letter-spacing: .5rem;
+  color: $color-white;
+
+  display: inline-block;
+
+  &--home {
+    font-size: 25rem;
+  }
+
+}

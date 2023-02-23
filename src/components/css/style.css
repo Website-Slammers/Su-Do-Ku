@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -15,7 +22,27 @@ html {
       font-size: 50%; } }
 
 body {
-  background-color: green; }
+  background-color: #1e1e1e; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px; }
+
+.heading-primary {
+  font-size: 15rem;
+  font-family: "Comfortaa", cursive;
+  font-weight: 300;
+  letter-spacing: .5rem;
+  color: #fff;
+  display: inline-block; }
+  .heading-primary--home {
+    font-size: 25rem; }
+
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .puzzle {
   width: 90rem; }
@@ -52,3 +79,42 @@ body {
       border-left: 5px solid #000; }
     .puzzle__number-box:last-of-type {
       border-right: 5px solid #000; }
+
+.header {
+  height: 20vh;
+  background-image: linear-gradient(to right bottom, rgba(255, 192, 203, 0.8), rgba(154, 205, 50, 0.8)), url("https://i.imgur.com/efHBmNO.png");
+  background-size: cover;
+  background-position: 0 0;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden; }
+  .header__textbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 300px; }
+
+.home {
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(255, 192, 203, 0.8), rgba(154, 205, 50, 0.8)), url("https://i.imgur.com/efHBmNO.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden; }
+  .home__textbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 300px; }
+    .home__textbox h1 {
+      animation: fadeIn 5s ease-out;
+      animation-fill-mode: backwards; }
+    .home__textbox a {
+      animation: fadeIn 2s ease-out;
+      animation-fill-mode: backwards;
+      animation-delay: .8s; }
