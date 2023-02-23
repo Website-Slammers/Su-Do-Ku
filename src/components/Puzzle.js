@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import sudGenerator from './SudGenerator'
+
 
 const Puzzle =()=>{
     const [puzzleState, setPuzzleState] = useState([
@@ -12,21 +14,11 @@ const Puzzle =()=>{
             [1,2,3,4,5,6,7,8,9],
             [1,2,3,4,5,6,7,8,9]])
     
-
-
-
-
     useEffect(()=>{
-        // setPuzzleState([
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9],
-        //     [1,2,3,4,5,6,7,8,9]])
+        console.log('hellosss')
+        let newPuzzle = sudGenerator()
+        console.log(newPuzzle)
+        setPuzzleState(newPuzzle);
         
     },[])
     
