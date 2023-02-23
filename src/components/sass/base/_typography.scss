@@ -8,12 +8,16 @@ body {
 }
 
 .heading-primary {
-  font-size: 25rem;
+  font-size: 15rem;
   font-family: $font-header;
   font-weight: 300;
   letter-spacing: .5rem;
   color: $color-white;
 
   display: inline-block;
+
+  &--home {
+    font-size: 25rem;
+  }
 
 }
