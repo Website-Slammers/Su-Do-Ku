@@ -36,8 +36,9 @@
   }
 
   &__number-box {
+    font-family: $font-header;
     box-sizing: border-box;
-    padding: .75rem;
+    padding: 1rem;
     // flex: 0 0 10%;
     flex: 0 0 calc(100% /9);
     height: calc(100% /9);

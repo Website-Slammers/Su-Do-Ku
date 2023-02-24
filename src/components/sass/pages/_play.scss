@@ -17,7 +17,12 @@
   justify-content: center;
   align-items: center;
   gap: 5rem;
-  // margin-top: 5rem;
+
+  //Remove Select Highlight
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+
 
   @media only screen and (max-width: $bp-smallest) {
     flex-direction: column;

@@ -212,8 +212,9 @@ body {
     .puzzle__row:nth-child(6) {
       border-bottom: 2px solid #75501e; }
   .puzzle__number-box {
+    font-family: "Comfortaa", cursive;
     box-sizing: border-box;
-    padding: .75rem;
+    padding: 1rem;
     flex: 0 0 calc(100% /9);
     height: calc(100% /9);
     background-color: #e9cea9;
@@ -237,7 +238,13 @@ body {
   background-size: cover;
   background-position: 0 0;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */ }
   .header__textbox {
     position: absolute;
     top: 50%;
@@ -256,7 +263,13 @@ body {
   background-position: center;
   position: relative;
   border-radius: 3px;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */ }
   @media only screen and (max-width: 31.25em) {
     .home {
       height: 100svh; } }
@@ -286,7 +299,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem; }
+  gap: 5rem;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */ }
   @media only screen and (max-width: 31.25em) {
     .play {
       flex-direction: column; } }
