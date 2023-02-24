@@ -210,10 +210,10 @@ body {
     border: 2px solid green;
     border-radius: 3px;
     position: absolute;
-    top: -5%;
-    left: -5%;
-    height: 110%;
-    width: 110%;
+    top: -2.5%;
+    left: -2.5%;
+    height: 105%;
+    width: 105%;
     z-index: -1; }
   .puzzle__row {
     font-size: 2rem;
