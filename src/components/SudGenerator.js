@@ -53,7 +53,8 @@ const sudGenerator=()=>{
                             column = -1
                             console.log(iterator , 'iterator')
                         }else if(secondIterator <10){
-                            iterator =0
+                            thirdIterator +=3;
+                            iterator = 3 +thirdIterator;
                             console.log('failure to launch twice, reseeding previous row')
                             currentRow = []
                             gridArray[row-1] == []
@@ -61,7 +62,7 @@ const sudGenerator=()=>{
                             column = -1
                             secondIterator ++
                         }else {
-                            row =0
+                            row = 0
                             gridArray=[]
                             currentRow =[]
                             column =-1
