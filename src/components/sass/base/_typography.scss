@@ -17,6 +17,10 @@ body {
   display: inline-block;
   cursor: default;
 
+  & a {
+    color: $color-white;
+    text-decoration: none;
+  }
   // @media only screen and (max-width: $bp-medium) {
   //   font-size: rem;
   // }
