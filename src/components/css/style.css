@@ -35,7 +35,7 @@ body {
   font-size: 16px; }
 
 .heading-primary {
-  font-size: 15rem;
+  font-size: 10rem;
   font-family: "Comfortaa", cursive;
   font-weight: 300;
   letter-spacing: .5rem;
@@ -49,10 +49,7 @@ body {
     .heading-primary {
       font-size: 10rem; } }
   .heading-primary--home {
-    font-size: 25rem; }
-    @media only screen and (max-width: 56.25em) {
-      .heading-primary--home {
-        font-size: 17rem; } }
+    font-size: 18rem; }
     @media only screen and (max-width: 37.5em) {
       .heading-primary--home {
         font-size: 15rem; } }
@@ -86,17 +83,17 @@ body {
   color: red; }
   .btn--home, .btn--home:visited {
     display: inline-block;
-    font-size: 4.5rem;
+    font-size: 3rem;
     letter-spacing: 1.5rem;
     text-decoration: none;
     font-family: "Comfortaa", cursive;
     font-weight: 900;
     text-transform: uppercase;
-    line-height: 120px;
+    line-height: 10rem;
     text-align: center;
     color: white;
-    width: 30rem;
-    height: 11rem;
+    width: 25rem;
+    height: 10rem;
     background-color: transparent;
     border: none;
     overflow: hidden;
@@ -113,7 +110,7 @@ body {
     top: 0;
     left: -100%;
     width: 100%;
-    height: .6rem;
+    height: .4rem;
     background-color: white;
     transition: all 0.5s; }
   .btn--home:hover:before {
@@ -124,7 +121,7 @@ body {
     bottom: 0;
     right: -100%;
     width: 100%;
-    height: .6rem;
+    height: .4rem;
     background-color: white;
     transition: all 0.5s; }
   .btn--home:hover:after {
@@ -134,7 +131,7 @@ body {
     position: absolute;
     top: -100%;
     right: 0;
-    width: .6rem;
+    width: .4rem;
     height: 100%;
     background-color: white;
     transition: all 0.5s; }
@@ -145,7 +142,7 @@ body {
     position: absolute;
     bottom: -100%;
     left: 0;
-    width: .6rem;
+    width: .4rem;
     height: 100%;
     background-color: white;
     transition: all 0.5s; }
@@ -156,6 +153,62 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.radio__input {
+  visibility: hidden;
+  height: 0;
+  width: 0; }
+
+.radio__label {
+  font-size: 4rem;
+  display: inline-block;
+  vertical-align: center;
+  text-align: center;
+  cursor: pointer;
+  background-color: #e9cea9;
+  color: #75501e;
+  padding: 2rem 4rem;
+  width: 30rem;
+  transition: all .5s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 5px solid #75501e; }
+  .radio__label--left {
+    border-right: 2.5px solid #75501e;
+    border-radius: 3px 0 0 3px; }
+  .radio__label--right {
+    border-left: 2.5px solid #75501e;
+    border-radius: 0 3px 3px 0; }
+  .radio__label--left:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #75501e;
+    transition: all .1s;
+    z-index: -1; }
+  .radio__label--right:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #75501e;
+    transition: all .2s ease-in;
+    z-index: -1; }
+
+.radio__input:checked + .radio__label {
+  color: white; }
+
+.radio__input:checked + .radio__label--left:before {
+  right: 0; }
+
+.radio__input:checked + .radio__label--right:before {
+  left: 0; }
 
 .puzzle {
   width: 90rem; }
@@ -223,7 +276,6 @@ body {
   background-size: cover;
   background-position: 0 0;
   position: relative;
-  border-radius: 3px;
   overflow: hidden; }
   .header__textbox {
     position: absolute;
@@ -232,6 +284,9 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     min-width: 300px; }
+  @media only screen and (max-width: 31.25em) {
+    .header {
+      display: none; } }
 
 .home {
   height: 100vh;

@@ -3,6 +3,7 @@ import React from 'react'
 import Header from './Header'
 import Navbar from './Navbar'
 import Puzzle from './Puzzle'
+import MobileControls from './MobileControls'
 
 import Video from './img/zen.mp4'
 
@@ -26,6 +27,14 @@ function Play() {
       <div className="flex-box">
         <Puzzle />
       </div>
+
+      <br />
+
+      <div className="flex-box">
+        <MobileControls />
+      </div>
+      
+
     </div>
   )
 }
