@@ -15,9 +15,34 @@ body {
   color: $color-white;
 
   display: inline-block;
+  cursor: default;
+
+  // @media only screen and (max-width: $bp-medium) {
+  //   font-size: rem;
+  // }
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 10rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 10rem;
+  }
 
   &--home {
     font-size: 25rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 17rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 15rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 10rem;
+    }
   }
 
 }

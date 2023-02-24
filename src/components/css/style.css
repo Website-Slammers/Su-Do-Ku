@@ -22,7 +22,11 @@ html {
       font-size: 50%; } }
 
 body {
-  background-color: #1e1e1e; }
+  background-color: #1e1e1e;
+  padding: 4rem; }
+  @media only screen and (max-width: 68.75em) {
+    body {
+      padding: 0; } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -35,9 +39,25 @@ body {
   font-weight: 300;
   letter-spacing: .5rem;
   color: #fff;
-  display: inline-block; }
+  display: inline-block;
+  cursor: default; }
+  @media only screen and (max-width: 37.5em) {
+    .heading-primary {
+      font-size: 10rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .heading-primary {
+      font-size: 10rem; } }
   .heading-primary--home {
     font-size: 25rem; }
+    @media only screen and (max-width: 56.25em) {
+      .heading-primary--home {
+        font-size: 17rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--home {
+        font-size: 15rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .heading-primary--home {
+        font-size: 10rem; } }
 
 .btn {
   color: red; }
