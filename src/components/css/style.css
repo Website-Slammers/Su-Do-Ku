@@ -63,8 +63,8 @@ body {
   color: red; }
   .btn--home, .btn--home:visited {
     display: inline-block;
-    font-size: 45px;
-    letter-spacing: 15px;
+    font-size: 4.5rem;
+    letter-spacing: 1.5rem;
     text-decoration: none;
     font-family: "Comfortaa", cursive;
     font-weight: 900;
@@ -79,6 +79,11 @@ body {
     overflow: hidden;
     cursor: pointer;
     position: relative; }
+    @media only screen and (max-width: 31.25em) {
+      .btn--home, .btn--home:visited {
+        font-size: 3.5rem;
+        width: 25rem;
+        height: 9rem; } }
   .btn--home:before {
     content: "";
     position: absolute;
@@ -189,6 +194,9 @@ body {
   position: relative;
   border-radius: 3px;
   overflow: hidden; }
+  @media only screen and (max-width: 31.25em) {
+    .home {
+      height: 100svh; } }
   .home__textbox {
     position: absolute;
     top: 50%;
