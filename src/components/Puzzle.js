@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import sudGenerator from './SudGenerator'
 import sudValidator from './SudValidator'
+import sudPuzAlgo from './SudPuzAlgo'
 
 
 const Puzzle =()=>{
@@ -17,18 +18,19 @@ const Puzzle =()=>{
     
         //ooh look a dangerous while statement in the whild
     useEffect(()=>{
-        console.log('hellosss')
+        // console.log('hellosss')
         let newPuzzle = sudGenerator()
-        console.log("where you at new puzzle",newPuzzle)
+        // console.log("where you at new puzzle " ,newPuzzle)
         while(newPuzzle === false || sudValidator(newPuzzle) === false){
             newPuzzle = sudGenerator()
         }
+        sudPuzAlgo(newPuzzle)
         setPuzzleState(newPuzzle);
         
     },[])
     
     useEffect(()=>{
-        console.log(puzzleState)
+        // console.log(puzzleState)
     },[puzzleState])
     
     return(

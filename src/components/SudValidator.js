@@ -5,10 +5,10 @@
 //(because I'm feeling a bit lazy on this aspect and want to just get the puzzle algorithym started)
 const sudValidator=(gridArray)=>{
     let validator = true
-    console.log(gridArray, "grid Array")
+    // console.log(gridArray, "grid Array")
     if(gridArray){
         for(let i=0; i< gridArray.length;i++){
-            console.log(gridArray[i])
+            // console.log(gridArray[i])
             if(gridArray[i].length != 9){
                 
                 validator = false
