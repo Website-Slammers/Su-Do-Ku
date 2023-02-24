@@ -6,7 +6,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 html {
@@ -21,8 +21,9 @@ html {
 
 body {
   background-color: #1e1e1e;
+  box-sizing: border-box;
 
-  padding: 4rem;
+//   padding: 4rem; trying to get border-box to work correctly before use.
 
     @media only screen and (max-width: $bp-large) {
         padding: 0;

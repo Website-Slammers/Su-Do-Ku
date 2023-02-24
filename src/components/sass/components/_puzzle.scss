@@ -1,6 +1,18 @@
 .puzzle {
   width: 90rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    width: 45rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    width: 40rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    width: 30rem;
+  }
+
   &__row {
     font-size: 3.5rem;
     flex: 0 0 100%;
@@ -11,6 +23,10 @@
     justify-content: center;
     align-items: center;
     gap: 0;
+
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 1.8rem;
+    }
 
     // Borders
     &:first-of-type {
@@ -39,6 +55,24 @@
     background-color: $color-puzzle-default;
     border: .5px solid $color-black;
     text-align: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      // width: 7rem;
+      height: 5rem;
+      padding: 1rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      // width: 7rem;
+      height: 5rem;
+      padding: 1.3rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      // width: 10rem;
+      height: 5rem;
+      padding: 1.8rem;
+    }
 
     &:nth-child(3) {
       border-right: 5px solid $color-black;

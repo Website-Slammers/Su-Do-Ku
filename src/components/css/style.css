@@ -12,7 +12,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit; }
+  box-sizing: border-box; }
 
 html {
   box-sizing: border-box;
@@ -23,7 +23,7 @@ html {
 
 body {
   background-color: #1e1e1e;
-  padding: 4rem; }
+  box-sizing: border-box; }
   @media only screen and (max-width: 68.75em) {
     body {
       padding: 0; } }
@@ -136,6 +136,15 @@ body {
 
 .puzzle {
   width: 90rem; }
+  @media only screen and (max-width: 56.25em) {
+    .puzzle {
+      width: 45rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .puzzle {
+      width: 40rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .puzzle {
+      width: 30rem; } }
   .puzzle__row {
     font-size: 3.5rem;
     flex: 0 0 100%;
@@ -145,6 +154,9 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0; }
+    @media only screen and (max-width: 31.25em) {
+      .puzzle__row {
+        font-size: 1.8rem; } }
     .puzzle__row:first-of-type {
       border-top: 5px solid #000; }
     .puzzle__row:last-of-type {
@@ -161,6 +173,18 @@ body {
     background-color: #e9cea9;
     border: 0.5px solid #000;
     text-align: center; }
+    @media only screen and (max-width: 56.25em) {
+      .puzzle__number-box {
+        height: 5rem;
+        padding: 1rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .puzzle__number-box {
+        height: 5rem;
+        padding: 1.3rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .puzzle__number-box {
+        height: 5rem;
+        padding: 1.8rem; } }
     .puzzle__number-box:nth-child(3) {
       border-right: 5px solid #000; }
     .puzzle__number-box:nth-child(6) {
