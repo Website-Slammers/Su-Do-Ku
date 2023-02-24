@@ -8,13 +8,13 @@ const sudGenerator=()=>{
     let secondIterator = 0
     let thirdIterator = 0
     for(let row =0; row<9; row++){
-        console.log("current row", row)
+        // console.log("current row", row)
         let passArray = []
         currentRow = []
 
         for(let column=0; column<9; column++){
             let validArray = assessAll(gridArray, row, column)
-            console.log(validArray)
+            // console.log(validArray)
             if(validArray[0] != undefined){
                 //if validNumber = empty /null , check any previous(random) number for a valid switchout.
                 let validNumber = validArray[Math.floor(Math.random()*validArray.length)]
@@ -24,7 +24,7 @@ const sudGenerator=()=>{
             }else{
                 //assess each option and pick one that works, if there is an option.
                 //this is getting nutty ok
-                console.log('hey')
+                // console.log('hey')
                 let rowCheck= noRow(gridArray, row, column)
                 for(let i=0; i<rowCheck.length; i++){
                     //check grid array at location of current row for location of 
@@ -38,7 +38,7 @@ const sudGenerator=()=>{
                     
                     if(rand != undefined && iterator <1 ){
                         currentRow.splice(columnLocation,1,rand)
-                        console.log("current Row ", currentRow)
+                        // console.log("current Row ", currentRow)
                         i=9
                         currentRow.push(replacer)
                 
@@ -46,18 +46,18 @@ const sudGenerator=()=>{
                         // replace a row if it doesn't work, then replace two rows if replacing a row doesn't work, else restart the entire puzzle generation
                     }else{
                         i=9
-                        console.log(gridArray)
-                        console.log(row, 'failure to launch, reseeding')
+                        // console.log(gridArray)
+                        // console.log(row, 'failure to launch, reseeding')
                         if(iterator <10) {
                             currentRow = []
                             gridArray[row] = []
                             iterator ++
                             column = -1
-                            console.log(iterator , 'iterator')
+                            // console.log(iterator , 'iterator')
                         }else if(secondIterator <10){
                             thirdIterator +=3;
                             iterator = 3 +thirdIterator;
-                            console.log('failure to launch twice, reseeding previous row')
+                            // console.log('failure to launch twice, reseeding previous row')
                             currentRow = []
                             gridArray[row-1] == []
                             row --
@@ -80,7 +80,7 @@ const sudGenerator=()=>{
         tempArray = [1,2,3,4,5,6,7,8,9];
     }
         
-    console.log("grid Array" , gridArray)
+    // console.log("grid Array" , gridArray)
     return gridArray
 
     //original puzzle maker, figured I'd leave this in the code (it doesn't make functional sudoku puzzles)
@@ -140,7 +140,7 @@ function noRow(gridArray,row,column){
         
     }
     
-    console.log("final set minus row: row",row+1," " , Array.from(finalSet));
+    // console.log("final set minus row: row",row+1," " , Array.from(finalSet));
     return Array.from(finalSet)
 }
 
