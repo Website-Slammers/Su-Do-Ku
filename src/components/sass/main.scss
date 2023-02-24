@@ -7,9 +7,9 @@
 @import "base/typography";
 @import "base/utilities";
 
-@import "components/bg-video";
 @import "components/buttons";
 @import "components/flexbox";
+@import "components/mobile-controls";
 @import "components/puzzle";
 
 @import "layout/footer";
@@ -17,3 +17,4 @@
 @import "layout/header";
 
 @import "pages/home";
+@import "pages/play";

@@ -27,7 +27,7 @@ const Puzzle =()=>{
     },[puzzleState])
     
     return(
-        <div className='flex-box'>
+        // <div className='flex-box'>
             <div className="puzzle">
                 {
                     !puzzleState[0][0]?<div>There's no data</div> :
@@ -46,7 +46,7 @@ const Puzzle =()=>{
                     })
                 }
             </div>
-        </div>
+        // </div>
 
     )
 }
