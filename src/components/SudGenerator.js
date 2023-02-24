@@ -15,7 +15,7 @@ const sudGenerator=()=>{
         for(let column=0; column<9; column++){
             let validArray = assessAll(gridArray, row, column)
             console.log(validArray)
-            if(validArray[0] != undefined){
+            if(validArray[0] != undefined || validArray[0] != ''){
                 //if validNumber = empty /null , check any previous(random) number for a valid switchout.
                 let validNumber = validArray[Math.floor(Math.random()*validArray.length)]
                         
@@ -42,6 +42,8 @@ const sudGenerator=()=>{
                         i=9
                         currentRow.push(replacer)
                 
+
+                        // replace a row if it doesn't work, then replace two rows if replacing a row doesn't work, else restart the entire puzzle generation
                     }else{
                         i=9
                         console.log(gridArray)
@@ -81,7 +83,7 @@ const sudGenerator=()=>{
     console.log("grid Array" , gridArray)
     return gridArray
 
-
+    //original puzzle maker, figured I'd leave this in the code (it doesn't make functional sudoku puzzles)
         // for(let j =0; j<9; j++){
         //     let location =Math.floor(Math.random()*tempArray.length)
         //     let addedNumber = tempArray[location]
