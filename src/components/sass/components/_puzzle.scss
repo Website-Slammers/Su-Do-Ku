@@ -1,5 +1,23 @@
 .puzzle {
   width: 40rem;
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    background-image:  radial-gradient(ellipse at top, #95999a, transparent),
+    radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+    border: 2px solid green;
+    border-radius: 3px;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    height: 110%;
+    width: 110%;
+    // border-radius: 50% 20% / 10% 40%;
+    z-index: -1;
+
+  }
 
   &__row {
     font-size: 2rem;
@@ -52,11 +70,11 @@
     }
 
     &:nth-child(3) {
-      border-right: 2px solid $color-puzzle-edge;
+      border-right: 3px solid $color-puzzle-edge;
     }
 
     &:nth-child(6) {
-      border-right: 2px solid $color-puzzle-edge;
+      border-right: 3px solid $color-puzzle-edge;
     }
 
     &:first-of-type {

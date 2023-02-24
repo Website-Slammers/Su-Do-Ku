@@ -8,6 +8,7 @@ $bp-smallest: 31.25em; // 500px
 // Colors
 $color-puzzle-default: rgb(233, 206, 169);
 $color-puzzle-highlight: darken(($color-puzzle-default), 10);
+$color-puzzle-highlight-1: darken(($color-puzzle-default), 5);
 $color-puzzle-edge: darken(rgb(233, 206, 169), 50);
 
 $color-white: #fff;
@@ -15,7 +16,11 @@ $color-black: #000;
 
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 $font-header:  'Comfortaa', cursive;
+$font-ian: 'Share Tech Mono', monospace;
+$font-drewford: 'Berkshire Swash', cursive;
 
 
