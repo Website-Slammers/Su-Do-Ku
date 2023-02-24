@@ -33,7 +33,7 @@
   &__number-box {
     display: flex;
     min-width: 30rem;
-    gap: 1rem;
+    // gap: 1rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -41,27 +41,31 @@
   }
 
   &__number {
-    border: 3px solid $color-puzzle-edge;
+    border: 1.5px solid $color-puzzle-edge;
     background-color: $color-puzzle-default;
     color: $color-puzzle-edge;
-    border-radius: 5px;
-    flex: 0 0 30%;
+    // border-radius: 3px;
+    flex: 0 0 calc(100% / 3);
     height: 7rem;
     font-size: 2.75rem;
     cursor: pointer;
     box-shadow: 0 2rem 6rem rgba(0,0,0,.3);
 
+    // BORDER
+
+
     &:hover {
       background-color: $color-puzzle-highlight;
+      // box-shadow: none;
     }
 
     &:active {
-      transform: scale(.95);
+      font-size: 2.5rem;
       box-shadow: 0 2rem 5rem rgba(0,0,0,.06);
     }
 
     &--X {
-      flex: 0 0 96%;
+      flex: 1;
     }
 
   }
