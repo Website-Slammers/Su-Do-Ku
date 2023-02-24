@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "startDev": "set PORT=8080 && react-scripts start",
     "start": "react-scripts start",
-    
     "compile:sass": "node-sass src/components/sass/main.scss src/components/css/style.css -w"
   },
   "keywords": [],
