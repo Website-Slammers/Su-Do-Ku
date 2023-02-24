@@ -42,6 +42,8 @@ const sudGenerator=()=>{
                         i=9
                         currentRow.push(replacer)
                 
+
+                        // replace a row if it doesn't work, then replace two rows if replacing a row doesn't work, else restart the entire puzzle generation
                     }else{
                         i=9
                         console.log(gridArray)
@@ -81,7 +83,7 @@ const sudGenerator=()=>{
     console.log("grid Array" , gridArray)
     return gridArray
 
-
+    //original puzzle maker, figured I'd leave this in the code (it doesn't make functional sudoku puzzles)
         // for(let j =0; j<9; j++){
         //     let location =Math.floor(Math.random()*tempArray.length)
         //     let addedNumber = tempArray[location]
@@ -96,7 +98,7 @@ const sudGenerator=()=>{
    
 }
 
-
+//this function shows all possible answers in a spot 
 function assessAll(gridArray,row,column){
     let finalSet = new Set([1,2,3,4,5,6,7,8,9])
     let maxArray = []
@@ -142,6 +144,8 @@ function noRow(gridArray,row,column){
     return Array.from(finalSet)
 }
 
+
+//assess rows to see what numbers are used up
 function rowAssessor(gridArray,row,column){
     let returnArrayR = []
     for(let i=0; i<9; i++){
@@ -152,6 +156,7 @@ function rowAssessor(gridArray,row,column){
     return returnArrayR
 }
 
+//assess columns to see what numbers are used up
 function columnAssessor(gridArray,row, column ){
     let returnArrayC = []
     for(let i=0; i<row; i++){
@@ -161,6 +166,7 @@ function columnAssessor(gridArray,row, column ){
     return returnArrayC
 }
 
+//assess current block to see what numbers are used up
 function blockAssessor(gridArray,row,column){
     let returnSet = new Set()
     let rowStart =0;
@@ -181,6 +187,9 @@ function blockAssessor(gridArray,row,column){
     return Array.from(returnSet)
 }
 
+//assesses current block to see what numbers aren't used up, minus the current row (for replacement 
+//(this is to prevent the row assessor from clashing with the block assessor because the row assessor is 
+//finding an alternate number for the current box that has already been placed and swapping it))
 function blockAssessorMinusRow(gridArray,row,column){
     let returnSet = new Set()
     let rowStart =0;
