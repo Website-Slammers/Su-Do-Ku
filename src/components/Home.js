@@ -15,11 +15,11 @@ const Home = () =>{
             </h1>
             <br />
             <br />
-            <Link to="/play" className="btn">
-                Play</Link>
+            <Link to="/play" className="btn btn--home">
+                Play<span></span></Link>
             
-            <a href="#" className="btn">
-                Sign-In</a>
+            {/* <a href="#" className="btn">
+                Sign-In</a> */}
         </div>
 
 
