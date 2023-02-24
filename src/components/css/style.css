@@ -23,6 +23,7 @@ html {
 
 body {
   background-color: #1e1e1e;
+  background-color: #fff;
   box-sizing: border-box; }
   @media only screen and (max-width: 68.75em) {
     body {
@@ -58,6 +59,28 @@ body {
     @media only screen and (max-width: 31.25em) {
       .heading-primary--home {
         font-size: 10rem; } }
+
+#play-return {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(128, 128, 128, 0.8), rgba(255, 192, 203, 0.8)), url(https://i.imgur.com/CZSfvRz.png);
+  background-size: cover;
+  background-position: bottom;
+  position: relative; }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80vh;
+  width: 100%;
+  z-index: -1;
+  opacity: .5;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
 
 .btn {
   color: red; }
@@ -158,20 +181,20 @@ body {
       .puzzle__row {
         font-size: 1.8rem; } }
     .puzzle__row:first-of-type {
-      border-top: 5px solid #000; }
+      border-top: 5px solid #75501e; }
     .puzzle__row:last-of-type {
-      border-bottom: 5px solid #000; }
+      border-bottom: 5px solid #75501e; }
     .puzzle__row:nth-child(3) {
-      border-bottom: 5px solid #000; }
+      border-bottom: 5px solid #75501e; }
     .puzzle__row:nth-child(6) {
-      border-bottom: 5px solid #000; }
+      border-bottom: 5px solid #75501e; }
   .puzzle__number-box {
     box-sizing: border-box;
     padding: 2.5rem;
     width: 11.11111rem;
     height: 9.5rem;
     background-color: #e9cea9;
-    border: 0.5px solid #000;
+    border: 0.5px solid #75501e;
     text-align: center; }
     @media only screen and (max-width: 56.25em) {
       .puzzle__number-box {
@@ -186,13 +209,13 @@ body {
         height: 5rem;
         padding: 1.8rem; } }
     .puzzle__number-box:nth-child(3) {
-      border-right: 5px solid #000; }
+      border-right: 5px solid #75501e; }
     .puzzle__number-box:nth-child(6) {
-      border-right: 5px solid #000; }
+      border-right: 5px solid #75501e; }
     .puzzle__number-box:first-of-type {
-      border-left: 5px solid #000; }
+      border-left: 5px solid #75501e; }
     .puzzle__number-box:last-of-type {
-      border-right: 5px solid #000; }
+      border-right: 5px solid #75501e; }
 
 .header {
   height: 20vh;
