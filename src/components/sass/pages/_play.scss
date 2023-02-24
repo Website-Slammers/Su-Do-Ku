@@ -46,6 +46,7 @@
   }
 
   &__number {
+    font-family: $font-header;
     border: 1.5px solid $color-puzzle-edge;
     background-color: $color-puzzle-default;
     color: $color-puzzle-edge;

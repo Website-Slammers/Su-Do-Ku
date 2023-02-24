@@ -322,6 +322,7 @@ body {
     flex-wrap: wrap;
     margin-top: 2rem; }
   .play__number {
+    font-family: "Comfortaa", cursive;
     border: 1.5px solid #75501e;
     background-color: #e9cea9;
     color: #75501e;
