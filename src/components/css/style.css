@@ -278,7 +278,6 @@ body {
       animation-delay: .8s; }
 
 #play-return {
-  position: relative;
   height: 100vh;
   background-image: linear-gradient(to right bottom, rgba(128, 128, 128, 0.8), rgba(255, 192, 203, 0.8)), url(https://i.imgur.com/CZSfvRz.png);
   background-size: cover;
