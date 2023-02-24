@@ -217,7 +217,10 @@ body {
     height: 4.5rem;
     background-color: #e9cea9;
     border: 0.5px solid #75501e;
-    text-align: center; }
+    text-align: center;
+    cursor: pointer; }
+    .puzzle__number-box:hover {
+      background-color: #dfb780; }
     .puzzle__number-box:nth-child(3) {
       border-right: 5px solid #75501e; }
     .puzzle__number-box:nth-child(6) {
@@ -308,6 +311,12 @@ body {
     flex: 0 0 30%;
     height: 7rem;
     font-size: 2.75rem;
-    cursor: pointer; }
+    cursor: pointer;
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
+    .play__number:hover {
+      background-color: #dfb780; }
+    .play__number:active {
+      transform: scale(0.95);
+      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06); }
     .play__number--X {
       flex: 0 0 96%; }

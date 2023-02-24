@@ -43,6 +43,11 @@
     background-color: $color-puzzle-default;
     border: .5px solid $color-puzzle-edge;
     text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-puzzle-highlight;
+    }
 
     &:nth-child(3) {
       border-right: 5px solid $color-puzzle-edge;
