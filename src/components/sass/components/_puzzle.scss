@@ -30,19 +30,19 @@
 
     // Borders
     &:first-of-type {
-      border-top: 5px solid $color-black;
+      border-top: 5px solid $color-puzzle-edge;
     }
 
     &:last-of-type {
-      border-bottom: 5px solid $color-black;
+      border-bottom: 5px solid $color-puzzle-edge;
     }
 
     &:nth-child(3) {
-      border-bottom: 5px solid $color-black;
+      border-bottom: 5px solid $color-puzzle-edge;
     }
 
     &:nth-child(6) {
-      border-bottom: 5px solid $color-black;
+      border-bottom: 5px solid $color-puzzle-edge;
     }
   }
 
@@ -53,7 +53,7 @@
     width: 11.11111rem;
     height: 9.5rem;
     background-color: $color-puzzle-default;
-    border: .5px solid $color-black;
+    border: .5px solid $color-puzzle-edge;
     text-align: center;
 
     @media only screen and (max-width: $bp-medium) {
@@ -75,19 +75,19 @@
     }
 
     &:nth-child(3) {
-      border-right: 5px solid $color-black;
+      border-right: 5px solid $color-puzzle-edge;
     }
 
     &:nth-child(6) {
-      border-right: 5px solid $color-black;
+      border-right: 5px solid $color-puzzle-edge;
     }
 
     &:first-of-type {
-      border-left: 5px solid $color-black;
+      border-left: 5px solid $color-puzzle-edge;
     }
 
     &:last-of-type {
-      border-right: 5px solid $color-black;
+      border-right: 5px solid $color-puzzle-edge;
     }
   }
 }
