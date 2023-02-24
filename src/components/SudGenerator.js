@@ -15,7 +15,7 @@ const sudGenerator=()=>{
         for(let column=0; column<9; column++){
             let validArray = assessAll(gridArray, row, column)
             console.log(validArray)
-            if(validArray[0] != undefined || validArray[0] != ''){
+            if(validArray[0] != undefined){
                 //if validNumber = empty /null , check any previous(random) number for a valid switchout.
                 let validNumber = validArray[Math.floor(Math.random()*validArray.length)]
                         
@@ -98,7 +98,7 @@ const sudGenerator=()=>{
    
 }
 
-
+//this function shows all possible answers in a spot 
 function assessAll(gridArray,row,column){
     let finalSet = new Set([1,2,3,4,5,6,7,8,9])
     let maxArray = []
@@ -144,6 +144,8 @@ function noRow(gridArray,row,column){
     return Array.from(finalSet)
 }
 
+
+//assess rows to see what numbers are used up
 function rowAssessor(gridArray,row,column){
     let returnArrayR = []
     for(let i=0; i<9; i++){
@@ -154,6 +156,7 @@ function rowAssessor(gridArray,row,column){
     return returnArrayR
 }
 
+//assess columns to see what numbers are used up
 function columnAssessor(gridArray,row, column ){
     let returnArrayC = []
     for(let i=0; i<row; i++){
@@ -163,6 +166,7 @@ function columnAssessor(gridArray,row, column ){
     return returnArrayC
 }
 
+//assess current block to see what numbers are used up
 function blockAssessor(gridArray,row,column){
     let returnSet = new Set()
     let rowStart =0;
@@ -183,6 +187,9 @@ function blockAssessor(gridArray,row,column){
     return Array.from(returnSet)
 }
 
+//assesses current block to see what numbers aren't used up, minus the current row (for replacement 
+//(this is to prevent the row assessor from clashing with the block assessor because the row assessor is 
+//finding an alternate number for the current box that has already been placed and swapping it))
 function blockAssessorMinusRow(gridArray,row,column){
     let returnSet = new Set()
     let rowStart =0;
