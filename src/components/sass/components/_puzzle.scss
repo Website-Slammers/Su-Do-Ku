@@ -1,20 +1,8 @@
 .puzzle {
-  width: 90rem;
-
-  @media only screen and (max-width: $bp-medium) {
-    width: 45rem;
-  }
-
-  @media only screen and (max-width: $bp-small) {
-    width: 40rem;
-  }
-
-  @media only screen and (max-width: $bp-smallest) {
-    width: 30rem;
-  }
+  width: 40rem;
 
   &__row {
-    font-size: 3.5rem;
+    font-size: 2rem;
     flex: 0 0 100%;
     background-color: transparent;
 
@@ -48,31 +36,13 @@
 
   &__number-box {
     box-sizing: border-box;
-    padding: 2.5rem;
+    padding: .75rem;
     // flex: 0 0 10%;
-    width: 11.11111rem;
-    height: 9.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     background-color: $color-puzzle-default;
     border: .5px solid $color-puzzle-edge;
     text-align: center;
-
-    @media only screen and (max-width: $bp-medium) {
-      // width: 7rem;
-      height: 5rem;
-      padding: 1rem;
-    }
-
-    @media only screen and (max-width: $bp-small) {
-      // width: 7rem;
-      height: 5rem;
-      padding: 1.3rem;
-    }
-
-    @media only screen and (max-width: $bp-smallest) {
-      // width: 10rem;
-      height: 5rem;
-      padding: 1.8rem;
-    }
 
     &:nth-child(3) {
       border-right: 5px solid $color-puzzle-edge;

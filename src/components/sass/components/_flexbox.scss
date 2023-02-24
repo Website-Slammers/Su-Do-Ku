@@ -2,4 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &--play {
+    display: flex;
+    flex-direction: row;
+  }
 }
