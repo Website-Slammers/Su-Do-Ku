@@ -17,7 +17,7 @@ function Play() {
       
 
       <div className="video-bg">
-          <video className="video-bg" src={Waterfall} autoPlay loop muted />
+          <video className="video-bg__content" src={Waterfall} autoPlay loop muted />
         </div>
 
       <br /><br />

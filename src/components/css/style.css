@@ -356,11 +356,12 @@ body {
   height: 100vh;
   position: relative; }
 
-.video-bg {
+.video-bg__content {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  margin-bottom: -5rem; }
+  margin-bottom: -4.5rem;
+  opacity: .7; }
 
 .play {
   display: flex;
@@ -402,7 +403,8 @@ body {
     height: 7rem;
     font-size: 2.75rem;
     cursor: pointer;
-    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+    transition: all .2s; }
     .play__number:hover {
       background-color: #dfb780; }
     .play__number:active {
