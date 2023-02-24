@@ -32,7 +32,7 @@ body {
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px; }
+  font-size: 1.6rem; }
 
 .heading-primary {
   font-size: 10rem;
@@ -56,28 +56,6 @@ body {
     @media only screen and (max-width: 31.25em) {
       .heading-primary--home {
         font-size: 10rem; } }
-
-#play-return {
-  position: relative;
-  height: 100vh;
-  background-image: linear-gradient(to right bottom, rgba(128, 128, 128, 0.8), rgba(255, 192, 203, 0.8)), url(https://i.imgur.com/CZSfvRz.png);
-  background-size: cover;
-  background-position: bottom;
-  position: relative; }
-
-.bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 80vh;
-  width: 100%;
-  z-index: -1;
-  opacity: .5;
-  overflow: hidden; }
-  .bg-video__content {
-    height: 100%;
-    width: 100%;
-    object-fit: cover; }
 
 .btn {
   color: red; }
@@ -153,6 +131,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+  .flex-box--play {
+    display: flex;
+    flex-direction: row; }
 
 .radio__input {
   visibility: hidden;
@@ -160,15 +141,15 @@ body {
   width: 0; }
 
 .radio__label {
-  font-size: 4rem;
+  font-size: 2rem;
   display: inline-block;
   vertical-align: center;
   text-align: center;
   cursor: pointer;
   background-color: #e9cea9;
   color: #75501e;
-  padding: 2rem 4rem;
-  width: 30rem;
+  padding: 1rem 2rem;
+  width: 15rem;
   transition: all .5s;
   position: relative;
   z-index: 1;
@@ -176,10 +157,10 @@ body {
   border: 5px solid #75501e; }
   .radio__label--left {
     border-right: 2.5px solid #75501e;
-    border-radius: 3px 0 0 3px; }
+    border-radius: 8px 0 0 8px; }
   .radio__label--right {
     border-left: 2.5px solid #75501e;
-    border-radius: 0 3px 3px 0; }
+    border-radius: 0 8px 8px 0; }
   .radio__label--left:before {
     position: absolute;
     content: "";
@@ -188,7 +169,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #75501e;
-    transition: all .1s;
+    transition: all .3s ease;
     z-index: -1; }
   .radio__label--right:before {
     position: absolute;
@@ -198,7 +179,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #75501e;
-    transition: all .2s ease-in;
+    transition: all .3s ease;
     z-index: -1; }
 
 .radio__input:checked + .radio__label {
@@ -211,18 +192,9 @@ body {
   left: 0; }
 
 .puzzle {
-  width: 90rem; }
-  @media only screen and (max-width: 56.25em) {
-    .puzzle {
-      width: 45rem; } }
-  @media only screen and (max-width: 37.5em) {
-    .puzzle {
-      width: 40rem; } }
-  @media only screen and (max-width: 31.25em) {
-    .puzzle {
-      width: 30rem; } }
+  width: 40rem; }
   .puzzle__row {
-    font-size: 3.5rem;
+    font-size: 2rem;
     flex: 0 0 100%;
     background-color: transparent;
     display: flex;
@@ -243,24 +215,12 @@ body {
       border-bottom: 5px solid #75501e; }
   .puzzle__number-box {
     box-sizing: border-box;
-    padding: 2.5rem;
-    width: 11.11111rem;
-    height: 9.5rem;
+    padding: .75rem;
+    width: 4.5rem;
+    height: 4.5rem;
     background-color: #e9cea9;
     border: 0.5px solid #75501e;
     text-align: center; }
-    @media only screen and (max-width: 56.25em) {
-      .puzzle__number-box {
-        height: 5rem;
-        padding: 1rem; } }
-    @media only screen and (max-width: 37.5em) {
-      .puzzle__number-box {
-        height: 5rem;
-        padding: 1.3rem; } }
-    @media only screen and (max-width: 31.25em) {
-      .puzzle__number-box {
-        height: 5rem;
-        padding: 1.8rem; } }
     .puzzle__number-box:nth-child(3) {
       border-right: 5px solid #75501e; }
     .puzzle__number-box:nth-child(6) {
@@ -313,3 +273,11 @@ body {
       animation: fadeIn 2s ease-out;
       animation-fill-mode: backwards;
       animation-delay: .8s; }
+
+#play-return {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(128, 128, 128, 0.8), rgba(255, 192, 203, 0.8)), url(https://i.imgur.com/CZSfvRz.png);
+  background-size: cover;
+  background-position: bottom;
+  position: relative; }

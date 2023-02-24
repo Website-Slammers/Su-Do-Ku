@@ -5,7 +5,7 @@ function MobileControls() {
     <div>
 
       <div className="radio">
-        <input className="radio__input" type="radio" id="answer" name="puzzle-input"></input>
+        <input className="radio__input" type="radio" id="answer" name="puzzle-input" checked></input>
         <label className="radio__label radio__label--left" for="answer">Answer</label>
 
         <input className="radio__input" type="radio" id="note" name="puzzle-input"></input>

@@ -15,25 +15,20 @@ function Play() {
       <Header />
       <Navbar />
 
-      {/* <div className="bg-video">
-          <video className="bg-video__content" autoplay muted loop>
-              <source src={Video} type="video/mp4"/>
-              Your browser is not supported!
-          </video>
-      </div> */}
-
       <h2 className="heading-secondary">Play Sudoku Now</h2>
 
-      <div className="flex-box">
-        <Puzzle />
+      <div className="flex-box flex-box--play">
+
+        <div className="flex-box">
+          <Puzzle />
+        </div>
+
+        <div className="flex-box">
+          <MobileControls />
+        </div>
+
       </div>
 
-      <br />
-
-      <div className="flex-box">
-        <MobileControls />
-      </div>
-      
 
     </div>
   )
