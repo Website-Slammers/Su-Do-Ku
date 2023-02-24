@@ -131,9 +131,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .flex-box--play {
-    display: flex;
-    flex-direction: row; }
 
 .radio__input {
   visibility: hidden;
@@ -281,3 +278,36 @@ body {
   background-size: cover;
   background-position: bottom;
   position: relative; }
+
+.play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem; }
+  @media only screen and (max-width: 31.25em) {
+    .play {
+      flex-direction: column; } }
+  .play__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+  .play__number-box {
+    display: flex;
+    min-width: 30rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem; }
+  .play__number {
+    border: 3px solid #75501e;
+    background-color: #e9cea9;
+    color: #75501e;
+    border-radius: 5px;
+    flex: 0 0 30%;
+    height: 7rem;
+    font-size: 2.75rem;
+    cursor: pointer; }
+    .play__number--X {
+      flex: 0 0 96%; }

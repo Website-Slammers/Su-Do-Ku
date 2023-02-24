@@ -11,3 +11,50 @@
   background-position: bottom;
   position: relative;
 }
+
+.play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  // margin-top: 5rem;
+
+  @media only screen and (max-width: $bp-smallest) {
+    flex-direction: column;
+  }
+  
+
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__number-box {
+    display: flex;
+    min-width: 30rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  &__number {
+    border: 3px solid $color-puzzle-edge;
+    background-color: $color-puzzle-default;
+    color: $color-puzzle-edge;
+    border-radius: 5px;
+    flex: 0 0 30%;
+    height: 7rem;
+    font-size: 2.75rem;
+    cursor: pointer;
+
+    &--X {
+      flex: 0 0 96%;
+    }
+
+  }
+}
