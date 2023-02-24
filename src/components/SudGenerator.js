@@ -37,7 +37,12 @@ const sudGenerator=()=>{
                         console.log("current Row ", currentRow)
                         i=9
                         currentRow.push(replacer)
-                    }else{console.log(row, 'failure to launch')}
+                    }else{
+                        console.log(row, 'failure to launch, reseeding')
+                        currentRow = []
+                        i --
+
+                    }
                 }
                 // currentRow.push('x')
                 gridArray[row] = currentRow
