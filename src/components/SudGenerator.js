@@ -4,6 +4,7 @@ const sudGenerator=()=>{
     let gridArray = []
     let tempArray = [1,2,3,4,5,6,7,8,9];
     let currentRow = []
+    let iterator = 0;
     for(let row =0; row<9; row++){
         // console.log("hello")
         let passArray = []
@@ -39,9 +40,18 @@ const sudGenerator=()=>{
                         currentRow.push(replacer)
                     }else{
                         console.log(row, 'failure to launch, reseeding')
-                        currentRow = []
-                        i --
-
+                        if(iterator <10) {
+                            currentRow = []
+                            i --
+                            iterator ++
+                        }else if(iterator <20){
+                            console.log('failure to launch twice, reseeding previous row')
+                            currentRow =[]
+                            gridArray[row-1] == []
+                            i--
+                            i--
+                        }
+                    
                     }
                 }
                 // currentRow.push('x')
