@@ -6,6 +6,8 @@ import Home from './components/Home'
 import App from './components/App'
 import Errorpage from './components/Errorpage';
 
+import Play from './components/Play'
+
 const appElement = document.getElementById('app');
 const root = createRoot(appElement);
 export const router = createBrowserRouter([
@@ -17,6 +19,10 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path: "play",
+                element: <Play />
             }
         ]
     }

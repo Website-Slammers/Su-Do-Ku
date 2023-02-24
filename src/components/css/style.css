@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -5,7 +12,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit; }
+  box-sizing: border-box; }
 
 html {
   box-sizing: border-box;
@@ -15,10 +22,129 @@ html {
       font-size: 50%; } }
 
 body {
-  background-color: green; }
+  background-color: #1e1e1e;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 68.75em) {
+    body {
+      padding: 0; } }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px; }
+
+.heading-primary {
+  font-size: 15rem;
+  font-family: "Comfortaa", cursive;
+  font-weight: 300;
+  letter-spacing: .5rem;
+  color: #fff;
+  display: inline-block;
+  cursor: default; }
+  @media only screen and (max-width: 37.5em) {
+    .heading-primary {
+      font-size: 10rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .heading-primary {
+      font-size: 10rem; } }
+  .heading-primary--home {
+    font-size: 25rem; }
+    @media only screen and (max-width: 56.25em) {
+      .heading-primary--home {
+        font-size: 17rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--home {
+        font-size: 15rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .heading-primary--home {
+        font-size: 10rem; } }
+
+.btn {
+  color: red; }
+  .btn--home, .btn--home:visited {
+    display: inline-block;
+    font-size: 4.5rem;
+    letter-spacing: 1.5rem;
+    text-decoration: none;
+    font-family: "Comfortaa", cursive;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 120px;
+    text-align: center;
+    color: white;
+    width: 30rem;
+    height: 11rem;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative; }
+    @media only screen and (max-width: 31.25em) {
+      .btn--home, .btn--home:visited {
+        font-size: 3.5rem;
+        width: 25rem;
+        height: 9rem; } }
+  .btn--home:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: .6rem;
+    background-color: white;
+    transition: all 0.5s; }
+  .btn--home:hover:before {
+    left: 0; }
+  .btn--home:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: .6rem;
+    background-color: white;
+    transition: all 0.5s; }
+  .btn--home:hover:after {
+    right: 0; }
+  .btn--home span:before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    right: 0;
+    width: .6rem;
+    height: 100%;
+    background-color: white;
+    transition: all 0.5s; }
+  .btn--home:hover span:before {
+    top: 0; }
+  .btn--home span:after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: .6rem;
+    height: 100%;
+    background-color: white;
+    transition: all 0.5s; }
+  .btn--home:hover span:after {
+    bottom: 0; }
+
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .puzzle {
   width: 90rem; }
+  @media only screen and (max-width: 56.25em) {
+    .puzzle {
+      width: 45rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .puzzle {
+      width: 40rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .puzzle {
+      width: 30rem; } }
   .puzzle__row {
     font-size: 3.5rem;
     flex: 0 0 100%;
@@ -28,6 +154,9 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0; }
+    @media only screen and (max-width: 31.25em) {
+      .puzzle__row {
+        font-size: 1.8rem; } }
     .puzzle__row:first-of-type {
       border-top: 5px solid #000; }
     .puzzle__row:last-of-type {
@@ -44,6 +173,18 @@ body {
     background-color: #e9cea9;
     border: 0.5px solid #000;
     text-align: center; }
+    @media only screen and (max-width: 56.25em) {
+      .puzzle__number-box {
+        height: 5rem;
+        padding: 1rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .puzzle__number-box {
+        height: 5rem;
+        padding: 1.3rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .puzzle__number-box {
+        height: 5rem;
+        padding: 1.8rem; } }
     .puzzle__number-box:nth-child(3) {
       border-right: 5px solid #000; }
     .puzzle__number-box:nth-child(6) {
@@ -52,3 +193,45 @@ body {
       border-left: 5px solid #000; }
     .puzzle__number-box:last-of-type {
       border-right: 5px solid #000; }
+
+.header {
+  height: 20vh;
+  background-image: linear-gradient(to right bottom, rgba(255, 192, 203, 0.8), rgba(154, 205, 50, 0.8)), url("https://i.imgur.com/efHBmNO.png");
+  background-size: cover;
+  background-position: 0 0;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden; }
+  .header__textbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 300px; }
+
+.home {
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(255, 192, 203, 0.8), rgba(154, 205, 50, 0.8)), url("https://i.imgur.com/efHBmNO.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden; }
+  @media only screen and (max-width: 31.25em) {
+    .home {
+      height: 100svh; } }
+  .home__textbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 300px; }
+    .home__textbox h1 {
+      animation: fadeIn 5s ease-out;
+      animation-fill-mode: backwards; }
+    .home__textbox a {
+      animation: fadeIn 2s ease-out;
+      animation-fill-mode: backwards;
+      animation-delay: .8s; }
