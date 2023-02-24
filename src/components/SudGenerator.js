@@ -5,8 +5,10 @@ const sudGenerator=()=>{
     let tempArray = [1,2,3,4,5,6,7,8,9];
     let currentRow = []
     let iterator = 0;
+    let secondIterator = 0
+    let thirdIterator = 0
     for(let row =0; row<9; row++){
-        // console.log("hello")
+        console.log("current row", row)
         let passArray = []
         currentRow = []
 
@@ -26,39 +28,57 @@ const sudGenerator=()=>{
                 let rowCheck= noRow(gridArray, row, column)
                 for(let i=0; i<rowCheck.length; i++){
                     //check grid array at location of current row for location of 
-                    console.log("row check ", rowCheck)
+                    // console.log("row check ", rowCheck)
                     let columnLocation = gridArray[row].findIndex((col)=> rowCheck[i] == col)
-                    console.log("column location ", columnLocation)
+                    // console.log("column location ", columnLocation)
                     let replacer = gridArray[row][columnLocation]
                     let previousLocation = assessAll(gridArray,row,columnLocation)
-                    console.log("previous Location ", previousLocation)
+                    // console.log("previous Location ", previousLocation)
                     let rand = previousLocation[Math.round(Math.random()*previousLocation.length)]
-                    if(rand != undefined){
+                    
+                    if(rand != undefined && iterator <1 ){
                         currentRow.splice(columnLocation,1,rand)
                         console.log("current Row ", currentRow)
                         i=9
                         currentRow.push(replacer)
+                
                     }else{
+                        i=9
+                        console.log(gridArray)
                         console.log(row, 'failure to launch, reseeding')
                         if(iterator <10) {
                             currentRow = []
-                            i --
+                            gridArray[row] = []
                             iterator ++
-                        }else if(iterator <20){
+                            column = -1
+                            console.log(iterator , 'iterator')
+                        }else if(secondIterator <10){
+                            iterator =0
                             console.log('failure to launch twice, reseeding previous row')
-                            currentRow =[]
+                            currentRow = []
                             gridArray[row-1] == []
-                            i--
-                            i--
+                            row --
+                            column = -1
+                            secondIterator ++
+                        }else {
+                            row =0
+                            gridArray=[]
+                            currentRow =[]
+                            column =-1
                         }
-                    
                     }
+                    
                 }
+            }
                 // currentRow.push('x')
                 gridArray[row] = currentRow
-            }
-            
         }
+        passArray = []
+        tempArray = [1,2,3,4,5,6,7,8,9];
+    }
+        
+    console.log("grid Array" , gridArray)
+    return gridArray
 
 
         // for(let j =0; j<9; j++){
@@ -71,11 +91,7 @@ const sudGenerator=()=>{
         //     // console.log(passArray)
         // }
         
-        passArray = []
-        tempArray = [1,2,3,4,5,6,7,8,9];
-    }
-    console.log("grid Array" , gridArray)
-    return gridArray
+      
    
 }
 
