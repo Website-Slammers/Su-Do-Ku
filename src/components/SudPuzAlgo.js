@@ -21,23 +21,62 @@ const sudPuzAlgo =(gridArray)=>{
     let numberOfBlocksRemoved = 0;
     let easy = 43;
     let medium =52;
+    let hard = 57;
     let rowRemoved = []
     let modeValue = easy;
+    let currentRowNum =0;
+    let deleteArray = [0,1,2,3,4,5,6,7,8]
 
-    if(gridArray != undefined){
-        rowRemoved = rowSelector(gridArray)
-    }   
+    //this logic is passing the gridArray into the row selector finding a location and returning a row
+    
+    console.log('rowRemoved ' , rowRemoved, ' gridArray ', gridArray)
     //the literally impossible chance of hitting a 9 exactly prevented
+    let rowStep =0
     while(numberOfBlocksRemoved < modeValue){
-        if(numberOfBlocksRemoved <= 10){
-            
+        
+
+        //remove 1 from each row  (9)
+        if(gridArray != undefined && rowStep <9){
+            let random = Math.floor(Math.random()*deleteArray.length)
+            console.log('random remove number, ' ,random, ' current row step ', rowStep)
+            rowRemoved = gridArray[rowStep];
+            rowStep +=1
+            //pull a row and the replace one spot with an X
+            rowRemoved[deleteArray[random]] = "X"
+            deleteArray.splice(random,1)
+
         }
-        numberOfBlocksRemoved += 43
+        // if(gridArray != undefined && rowStep <8){
+        //     let random = Math.floor(Math.random()*deleteArray.length)
+        //     rowRemoved= gridArray[rowStep];
+        //     rowStep +=1;
+        //     rowRemoved[deleteArray[random]] = 'X'
+        //     deleteArray.splice(random,1)
+        //     console.log("delete array ",deleteArray)
+        //     console.log(rowRemoved)
+        //     gridArray[rowStep] = rowRemoved
+        //     console.log(gridArray)
+
+        // }else 
+        // removed randoms from each row (20)
+        // if(numberOfBlocksRemoved <= 9){
+        //     if(rowRemoved.length = 9){
+        //         rowRemoved[column] = 'X'
+        //         gridArray[currentRowNum] = rowRemoved;
+        //         console.log(gridArray)
+        //     }
+        // } else if(numberOfBlocksRemoved <20){
+        //     let column = Math.floor(Math.random()*8)
+        //         rowRemoved[column] = 'X'
+        //         gridArray[currentRowNum] = rowRemoved;
+        //         console.log(gridArray)
+        // }
+
+        
+
+        numberOfBlocksRemoved += 1
         
     }
-    
-
-    
     // if(gridArray !=undefined ){
     //     blockSelector(gridArray);
     // }
@@ -46,6 +85,11 @@ const sudPuzAlgo =(gridArray)=>{
 }
 
 
+//intentional row selector
+
+
+
+//random row selector 
 
 const rowSelector = (gridArray)=>{
     //return an array from 0-8 telling us how many numbers (unhidden) are in each row ()
@@ -55,38 +99,41 @@ const rowSelector = (gridArray)=>{
     let rowArray = [0,0,0,0,0,0,0,0,0]
 
     for(let row = 0; row<9; row++){
-        for(let column=0; column<9; column++)
-        if(gridArray[row][column] != 'x'){
-            rowArray[row]= rowArray[row]+1
+        for(let column=0; column<9; column++){
+            if(gridArray[row][column] != 'x' || gridArray[row][column] != 'X'){
+                rowArray[row]= rowArray[row]+1
+            }
         }
     }
     console.log("rowArray ", rowArray)
     let rowIndex = pickingAlgo(rowArray)
-
+    console.log(rowIndex)
     //if the selected row is above rounded value, set the index and return it
-    
-
     return rowIndex
 }
 
-//dude I can't wait to work on this
+//dude I can't wait to work on this picking algo needs to recieve information about the number of empty spots on the grid
 const pickingAlgo = (rowArray)=>{
     
     let arrayMean = meanOfArray(rowArray)
     //picks a random location 
     let rowSelect = Math.floor(Math.random()*8.9999999);
     let rowIndex= 0
-    if(rowArray[rowSelect] > arrayMean ){
+    if(rowArray[rowSelect] >= arrayMean ){
         rowIndex = rowSelect
     }else if(rowArray[rowSelect] < arrayMean ){
         let rowReset = Math.random()
+        //if selected row is less than the mean of the other rows then 20 percent reroll
         if(rowReset < .2){
             pickingAlgo()
-        } else {
-            rowIndex = rowSelect
+        }  
+        
+        if(rowArray[rowSelect]< arrayMean-3 ){
+            pickingAlgo()
         }
         
     }
+    return rowIndex
 }
 
 
