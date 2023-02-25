@@ -82,7 +82,7 @@ const pickingAlgo = (rowArray)=>{
         let rowReset = Math.random()
         if(rowReset < .2){
             pickingAlgo()
-        } else{
+        } else {
             rowIndex = rowSelect
         }
         
