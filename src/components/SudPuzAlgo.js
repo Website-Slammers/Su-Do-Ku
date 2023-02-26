@@ -1,9 +1,7 @@
 //I'm going to make 3 different functions at a minimum
 // I was thinking about using a random number generator to pick which algorythm to use to remove numbers as 
 // well as an algorythm that pays attention to blocks and where numbers are to prevent an estranged disbalance
-
 //to sum up my sudo code
-
 // sudPuzAlgo(){
     //blockselector (picks blocks based on a random algorithym that also pays attention to amounts of numbers left)
     //logical solver algorithym (removes one number based on a percentage based random choice (aka, 
@@ -16,6 +14,8 @@
 
 //}
 
+import { assessAll } from "./assess/assessAll";
+import {squareAssess} from './assess/SquareAssess'
 
 const sudPuzAlgo =(gridArray)=>{
     let numberOfBlocksRemoved = 0;
@@ -28,68 +28,38 @@ const sudPuzAlgo =(gridArray)=>{
     let deleteArray = [0,1,2,3,4,5,6,7,8]
 
     //this logic is passing the gridArray into the row selector finding a location and returning a row
-    
-    console.log('rowRemoved ' , rowRemoved, ' gridArray ', gridArray)
     //the literally impossible chance of hitting a 9 exactly prevented
     let rowStep =0
-    while(numberOfBlocksRemoved < modeValue){
+    while(numberOfBlocksRemoved < easy){
         
 
         //remove 1 from each row  (9)
+        // this code works because the memory space for gridArray and rowRemoved = gridArray[rowStep] is the same 
         if(gridArray != undefined && rowStep <9){
             let random = Math.floor(Math.random()*deleteArray.length)
-            console.log('random remove number, ' ,random, ' current row step ', rowStep)
             rowRemoved = gridArray[rowStep];
             rowStep +=1
             //pull a row and the replace one spot with an X
             rowRemoved[deleteArray[random]] = "X"
             deleteArray.splice(random,1)
-
-        }
-        // if(gridArray != undefined && rowStep <8){
-        //     let random = Math.floor(Math.random()*deleteArray.length)
-        //     rowRemoved= gridArray[rowStep];
-        //     rowStep +=1;
-        //     rowRemoved[deleteArray[random]] = 'X'
-        //     deleteArray.splice(random,1)
-        //     console.log("delete array ",deleteArray)
-        //     console.log(rowRemoved)
-        //     gridArray[rowStep] = rowRemoved
-        //     console.log(gridArray)
-
-        // }else 
-        // removed randoms from each row (20)
-        // if(numberOfBlocksRemoved <= 9){
-        //     if(rowRemoved.length = 9){
-        //         rowRemoved[column] = 'X'
-        //         gridArray[currentRowNum] = rowRemoved;
-        //         console.log(gridArray)
-        //     }
-        // } else if(numberOfBlocksRemoved <20){
-        //     let column = Math.floor(Math.random()*8)
-        //         rowRemoved[column] = 'X'
-        //         gridArray[currentRowNum] = rowRemoved;
-        //         console.log(gridArray)
-        // }
-
-        
-
-        numberOfBlocksRemoved += 1
-        
+            numberOfBlocksRemoved ++;
+        }else if(numberOfBlocksRemoved <easy){
+            //much code such wow
+            let numPickedRow = rowSelector(gridArray)
+            // console.log(numPickedRow)
+            let indexArray = validIndex(gridArray[numPickedRow])
+            let randomIndexColumn = indexArray[Math.floor(Math.random()*indexArray.length)]
+            // console.log('row ', numPickedRow, ' column ' , randomIndexColumn)
+            let isValid = squareAssess(gridArray, numPickedRow, randomIndexColumn);
+            
+            numberOfBlocksRemoved += 1
+        }else {
+            numberOfBlocksRemoved += 1
+            
+        }   
+        console.log("number of blocks removed ", numberOfBlocksRemoved)
     }
-    // if(gridArray !=undefined ){
-    //     blockSelector(gridArray);
-    // }
-    
-
 }
-
-
-//intentional row selector
-
-
-
-//random row selector 
 
 const rowSelector = (gridArray)=>{
     //return an array from 0-8 telling us how many numbers (unhidden) are in each row ()
@@ -97,41 +67,61 @@ const rowSelector = (gridArray)=>{
     //a higher chance of rerolling if the number
     // is below certain thresholds
     let rowArray = [0,0,0,0,0,0,0,0,0]
-
     for(let row = 0; row<9; row++){
         for(let column=0; column<9; column++){
-            if(gridArray[row][column] != 'x' || gridArray[row][column] != 'X'){
-                rowArray[row]= rowArray[row]+1
+            if(gridArray[row][column] != 'x' && gridArray[row][column] != 'X'){
+                rowArray[row] = rowArray[row]+1
             }
         }
     }
-    console.log("rowArray ", rowArray)
-    let rowIndex = pickingAlgo(rowArray)
-    console.log(rowIndex)
+    if(rowArray != undefined){
+        let rowIndex = pickingAlgo(rowArray)
+        return rowIndex
+    }else{ rowSelector(gridArray)}
+    // console.log(rowIndex)
     //if the selected row is above rounded value, set the index and return it
-    return rowIndex
+    
 }
 
-//dude I can't wait to work on this picking algo needs to recieve information about the number of empty spots on the grid
+ //return valid index numbers for a random algo to shuffle through that are all valid because they are not 'X'
+const validIndex = (rowArray) =>{
+    let indexArray = [];
+    for(let i = 0; i<rowArray.length; i++){
+        if(rowArray[i] != 'x' && rowArray[i] != 'X'){
+            indexArray.push(i)
+        }
+    }
+    return indexArray
+}
+
+
+//picking algo needs to recieve information about the number of empty spots on the grid (what a dangerous function, it has so much recursion it could destroy you.)
 const pickingAlgo = (rowArray)=>{
-    
     let arrayMean = meanOfArray(rowArray)
+    let binary = false;
+    if(binary == true){
+        return rowArray
+    }
     //picks a random location 
+    console.log("row array", rowArray);
     let rowSelect = Math.floor(Math.random()*8.9999999);
-    let rowIndex= 0
+    let rowIndex = rowSelect
     if(rowArray[rowSelect] >= arrayMean ){
-        rowIndex = rowSelect
+        // console.log(rowIndex, "row index, ", arrayMean, " array mean", )
+        binary = true;
+        return rowIndex
     }else if(rowArray[rowSelect] < arrayMean ){
         let rowReset = Math.random()
         //if selected row is less than the mean of the other rows then 20 percent reroll
         if(rowReset < .2){
-            pickingAlgo()
-        }  
-        
-        if(rowArray[rowSelect]< arrayMean-3 ){
-            pickingAlgo()
+            rowIndex= pickingAlgo(rowArray)
+        }else if(rowArray[rowSelect]< arrayMean ){
+            // console.log(rowArray[rowSelect], ' row array at row select')
+            rowIndex= pickingAlgo(rowArray)
+        }else{
+            binary = true
+            return rowIndex
         }
-        
     }
     return rowIndex
 }
@@ -139,10 +129,14 @@ const pickingAlgo = (rowArray)=>{
 
 const meanOfArray = (rowArray) =>{
     const initialValue = 0;
-    let roundedValue = Math.round(rowArray.reduce((accumulator, currentValue)=>
+    let roundedValue = 8;
+    if(rowArray){
+        roundedValue = Math.round(rowArray.reduce((accumulator, currentValue)=>
         accumulator + currentValue, initialValue
-    )/9)
-    console.log("rounded value", roundedValue);
+        )/9)
+    }
+    
+    // console.log("rounded value", roundedValue);
     return roundedValue
 }
 
@@ -150,35 +144,26 @@ const meanOfArray = (rowArray) =>{
 
 
 
-//first lets slice all the arrays up into blocks
-// function blockSelector(gridArray){
-//     let momSaidGlobalVariablesAreBad = 9;
-//     // left to right, top to bottom 0-8
-//     //  ___ ___ ___
-//     // | 0 | 1 | 2 |
-//     //  --- --- --- 
-//     // | 3 | 4 | 5 |
-//     //  --- --- ---
-//     // | 6 | 7 | 8 |
-//     //  --- --- --- 
-//     let blockArray = [];
-//     let blockNumber = 0
-//     let iterator =0;
-    
-//     for(let row=0; row<momSaidGlobalVariablesAreBad; row+=3){
-//         for(let column= 0; column <momSaidGlobalVariablesAreBad; column +=3){
-//             if(row )
-//             let currentRow = gridArray[row]
-//             let currentSlice = currentRow.slice(column, column+3)
-//             console.log("currentSlice", currentSlice)
-//             blockArray[blockNumber] = [currentSlice]
-//         }
-        
-//     }
-    
 
-
-
+// ░░░░░░░░░▄░░░░░░░░░░░░░░▄░░░░
+// ░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌░░░
+// ░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐░░░
+// ░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐░░░
+// ░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐░░░
+// ░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌░░░ 
+// ░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒▌░░
+// ░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐░░
+// ░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄▌░
+// ░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▌░
+// ▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒▐░
+// ▐▒▒▐▀▐▀▒░▄▄▒▄▒▒▒▒▒▒░▒░▒░▒▒▒▒▌
+// ▐▒▒▒▀▀▄▄▒▒▒▄▒▒▒▒▒▒▒▒░▒░▒░▒▒▐░
+// ░▌▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒░▒░▒░▒░▒▒▒▌░
+// ░▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▄▒▒▐░░
+// ░░▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌░░
+// ░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀░░░
+// ░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀░░░░░
+// ░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░
 
 
 

@@ -1,4 +1,9 @@
 // import React from 'react'
+import { columnAssessor } from "./assess/columnAssess";
+import { rowAssessor } from "./assess/rowAssess";
+import { blockAssessor } from "./assess/blockAssess";
+import { blockAssessorMinusRow } from "./assess/block-rowAssess";
+import { assessAll } from "./assess/assessAll";
 
 const sudGenerator=()=>{
     let gridArray = []
@@ -83,46 +88,10 @@ const sudGenerator=()=>{
     // console.log("grid Array" , gridArray)
     return gridArray
 
-    //original puzzle maker, figured I'd leave this in the code (it doesn't make functional sudoku puzzles)
-        // for(let j =0; j<9; j++){
-        //     let location =Math.floor(Math.random()*tempArray.length)
-        //     let addedNumber = tempArray[location]
-        //     console.log('tempArray ', tempArray, tempArray.length)
-        //     console.log("added ", addedNumber)
-        //     passArray.push(addedNumber)
-        //     tempArray.splice(location,1)
-        //     // console.log(passArray)
-        // }
-        
-      
-   
 }
 
 //this function shows all possible answers in a spot 
-function assessAll(gridArray,row,column){
-    let finalSet = new Set([1,2,3,4,5,6,7,8,9])
-    let maxArray = []
 
-
-
-    maxArray.push(...rowAssessor(gridArray, row, column))
-    // console.log("maxArray", maxArray)
-    maxArray.push(...columnAssessor(gridArray, row, column))
-    maxArray.push(...blockAssessor(gridArray, row,column))
-    // console.log("maxArray post", maxArray)
-    // assess the set against another set of numbers to get the numbers that can still be used.
-    //make a for loop to run through each array and apply them to the set then push the set back into an array and return it.
-    for(let i=0; i<maxArray.length; i++){
-        if(finalSet.has(maxArray[i])){
-            finalSet.delete(maxArray[i])
-        }
-        
-    }
-    
-    // console.log("final set" , Array.from(finalSet));
-    
-    return Array.from(finalSet)
-}
 
 //acts like the other assesor but doesn't check the row 
 function noRow(gridArray,row,column){
@@ -145,70 +114,18 @@ function noRow(gridArray,row,column){
 }
 
 
-//assess rows to see what numbers are used up
-function rowAssessor(gridArray,row,column){
-    let returnArrayR = []
-    for(let i=0; i<9; i++){
-        // console.log('hello? ', gridArray[row])
-        if(gridArray[row] &&gridArray[row][i]) returnArrayR.push( gridArray[row][i])
-    }
-    // console.log("returnArray" , returnArrayR)
-    return returnArrayR
-}
-
-//assess columns to see what numbers are used up
-function columnAssessor(gridArray,row, column ){
-    let returnArrayC = []
-    for(let i=0; i<row; i++){
-        if(gridArray[i]) returnArrayC.push( gridArray[i][column])
-    }
-    // console.log("returnArray" , returnArrayC)
-    return returnArrayC
-}
-
-//assess current block to see what numbers are used up
-function blockAssessor(gridArray,row,column){
-    let returnSet = new Set()
-    let rowStart =0;
-    let rowEnd=2 ;
-    let columnStart = 0;
-    let columnEnd =2;
-    if(row<=5 &&row>2)rowStart =3, rowEnd=5;
-    if(row>5) rowStart =6, rowEnd=8;
-    if(column<=5 && column >2) columnStart =3, columnEnd=5;
-    if(column>5) columnStart=6, columnEnd =8
-    for(let i=rowStart; i<=rowEnd; i++){
-        for(let j=columnStart; j<=columnEnd; j++){
-            if(gridArray && gridArray[i] && gridArray[i][j]) returnSet.add(gridArray[i][j])
-        }
-    }
-    if(returnSet.has(undefined)) returnSet.delete(undefined)
-    // console.log(returnSet)
-    return Array.from(returnSet)
-}
-
-//assesses current block to see what numbers aren't used up, minus the current row (for replacement 
-//(this is to prevent the row assessor from clashing with the block assessor because the row assessor is 
-//finding an alternate number for the current box that has already been placed and swapping it))
-function blockAssessorMinusRow(gridArray,row,column){
-    let returnSet = new Set()
-    let rowStart =0;
-    let rowEnd=1 ;
-    let columnStart = 0;
-    let columnEnd =2;
-    if(row<=5 &&row>2)rowStart =3, rowEnd=row-1;
-    if(row>5) rowStart =6, rowEnd=row-1;
-    if(column<=5 && column >2) columnStart =3, columnEnd=5;
-    if(column>5) columnStart=6, columnEnd =8
-    for(let i=rowStart; i<=rowEnd; i++){
-        for(let j=columnStart; j<=columnEnd; j++){
-            if(gridArray && gridArray[i] && gridArray[i][j]) returnSet.add(gridArray[i][j])
-        }
-    }
-    if(returnSet.has(undefined)) returnSet.delete(undefined)
-    // console.log(returnSet)
-    return Array.from(returnSet)
-}
-
 sudGenerator();
 export default sudGenerator;
+
+    // original puzzle maker, figured I'd leave this in the code (it doesn't make functional sudoku puzzles)
+    //     for(let j =0; j<9; j++){
+    //         let location =Math.floor(Math.random()*tempArray.length)
+    //         let addedNumber = tempArray[location]
+    //         console.log('tempArray ', tempArray, tempArray.length)
+    //         console.log("added ", addedNumber)
+    //         passArray.push(addedNumber)
+    //         tempArray.splice(location,1)
+    //         // console.log(passArray)
+    //     }
+        
+      
