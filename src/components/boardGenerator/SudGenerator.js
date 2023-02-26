@@ -1,9 +1,9 @@
 // import React from 'react'
-import { columnAssessor } from "./assess/columnAssess";
-import { rowAssessor } from "./assess/rowAssess";
-import { blockAssessor } from "./assess/blockAssess";
-import { blockAssessorMinusRow } from "./assess/block-rowAssess";
-import { assessAll } from "./assess/assessAll";
+import { columnAssessor } from "../assess/columnAssess";
+import { rowAssessor } from "../assess/rowAssess";
+import { blockAssessor } from "../assess/blockAssess";
+import { blockAssessorMinusRow } from "../assess/block-rowAssess";
+import { assessAll } from "../assess/assessAll";
 
 const sudGenerator=()=>{
     let gridArray = []

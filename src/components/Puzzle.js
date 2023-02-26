@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import sudGenerator from './SudGenerator'
-import sudValidator from './SudValidator'
-import sudPuzAlgo from './SudPuzAlgo'
+import sudGenerator from './boardGenerator/SudGenerator'
+import sudValidator from './boardGenerator/SudValidator'
+import sudPuzAlgo from './boardGenerator/SudPuzAlgo'
 
 
 const Puzzle =()=>{
@@ -21,6 +21,7 @@ const Puzzle =()=>{
         // console.log('hellosss')
         let newPuzzle = sudGenerator()
         const solution = newPuzzle
+
         while(newPuzzle === false || sudValidator(newPuzzle) === false){
             newPuzzle = sudGenerator()
         }

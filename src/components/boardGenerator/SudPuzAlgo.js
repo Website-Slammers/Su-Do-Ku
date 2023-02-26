@@ -14,8 +14,8 @@
 
 //}
 
-import { assessAll } from "./assess/assessAll";
-import {squareAssess} from './assess/SquareAssess'
+import { assessAll } from "../assess/assessAll";
+import {squareAssess} from '../assess/SquareAssess'
 
 const sudPuzAlgo =(gridArray)=>{
     let numberOfBlocksRemoved = 0;
