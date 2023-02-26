@@ -20,10 +20,11 @@ const Puzzle =()=>{
     useEffect(()=>{
         // console.log('hellosss')
         let newPuzzle = sudGenerator()
-        // console.log("where you at new puzzle " ,newPuzzle)
+        const solution = newPuzzle
         while(newPuzzle === false || sudValidator(newPuzzle) === false){
             newPuzzle = sudGenerator()
         }
+        console.log("puzzle Solution", solution)
         sudPuzAlgo(newPuzzle)
         setPuzzleState(newPuzzle);
         
