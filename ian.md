@@ -1,7 +1,7 @@
 Ideas, priorities, and extras for sudoku (good read for drew lets get the game working before all else)
 
 Priority 1:
-1.Store the puzzle and its solution in to local storage and use that to set the puzzle board
+1.Store the puzzle and its solution into local storage and use that to set the puzzle board
 change the visual representation of the 'x's to empty spaces
 2.Make a location for number of failures left, 
 3.Allow input of variables to the board, using the solution to compare against the original and say if the piece put in was valid or//// get drew to create some cool animation that
