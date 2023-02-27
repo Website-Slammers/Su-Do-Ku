@@ -1,5 +1,4 @@
-import React from 'react'
-
+import {useState} from 'react'
 import Header from './Header'
 import Navbar from './Navbar'
 import Puzzle from './Puzzle'
@@ -9,6 +8,8 @@ import Footer from './Footer'
 import Waterfall from './img/waterfall.mp4'
 
 function Play() {
+  
+
   return (
 
     <div id="play-return">
@@ -25,7 +26,7 @@ function Play() {
       <div className="play">
 
         <div className="flex-box">
-          <Puzzle />
+          <Puzzle/>
         </div>
 
         <div className="play__controls">

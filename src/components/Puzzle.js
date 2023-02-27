@@ -7,9 +7,11 @@ import { getPuzzleById } from './api/puzzle'
 
 
 const Puzzle =()=>{
+    const [targetCoordinates, setTargetCoordinates] = useState([])
     const [puzzleObj, setPuzzleObj] = useState({})
-    const [initialState, setInitialState] = useState([])
-    const [boardSolution, setBoardSolution] = useState([])
+    const [emptyPuzzle, setEmptyPuzzle] = useState([])
+    const [answeredPuzzle, setAnsweredPuzzle] = useState([])
+    const [puzzleId, setPuzzleId] = useState()
     const [puzzleState, setPuzzleState] = useState([
         [1,2,3,4,5,6,7,8,9],
         [1,2,3,4,5,6,7,8,9],
@@ -21,63 +23,82 @@ const Puzzle =()=>{
         [1,2,3,4,5,6,7,8,9],
         [1,2,3,4,5,6,7,8,9]])
 
+        console.log(puzzleState);
     async function getAndParsePuzzle(){
+        try{
         let id = Math.ceil(Math.random()*366)
         const puzzleData = await getPuzzleById(id)
         setPuzzleObj(puzzleData)
+        }catch(error){
+            console.log(error)
+        }
     }
 
     useEffect(()=>{
         // console.log('hellosss')
-        if(localStorage.getItem("puzzleState")&&localStorage.getItem("initialState")&& localStorage.getItem("boardSolution")){
-            setPuzzleState(localStorage.getItem("puzzleState"))
-            setInitialState(localStorage.getItem("initialState"))
-            setBoardSolution(localStorage.getItem("boardSolution"))
-            setPuzzleId(localStorage.getItem("puzzleId"))
+        if(localStorage.getItem("puzzleState")&&localStorage.getItem("emptyPuzzle")&& localStorage.getItem("answeredPuzzle")){
+            let newState = JSON.parse(localStorage.getItem("puzzleState"))
+            setPuzzleState(newState)
+            // console.log("here ", newState)
+            let newEmptyPuzzle = JSON.parse(localStorage.getItem("emptyPuzzle"))
+            setEmptyPuzzle(newEmptyPuzzle)
+            setAnsweredPuzzle(JSON.parse(localStorage.getItem("answeredPuzzle")))
+            setPuzzleId(JSON.parse(localStorage.getItem("puzzleId")))
 
         }else{
             getAndParsePuzzle()
-
-            // let newPuzzle = sudGenerator()
-            // console.log("what " ,newPuzzle);
-            // setBoardSolution(newPuzzle)
-
-            // while(newPuzzle === false || sudValidator(newPuzzle) === false){
-            //     newPuzzle = sudGenerator()
-            // }
-            // sudPuzAlgo(newPuzzle)
-            // setInitialState(newPuzzle)
-            // setPuzzleState(newPuzzle);
+            // console.log(puzzleObj)
         }
     },[])
     //token maker
     useEffect(()=>{
-        console.log('puzzleObj', puzzleObj)
-        if(puzzleObj && puzzleObj.emptyPuzzle){
-            // console.log("puzzleObj", puzzleObj.emptyPuzzle)
-            // let emptyPuzzle = JSON.parse(puzzleObj.emptyPuzzle)
-            // console.log("hello?" , emptyPuzzle)
-            // setInitialState(JSON.parse(puzzleObj.emptyPuzzle))
-            // setPuzzleState(JSON.parse(puzzleObj.emptyPuzzle))
-            // setBoardSolution(JSON.parse(puzzleObj.answeredPuzzle))
-        }
+        console.log("what is happening", puzzleObj)
+        if(puzzleObj.emptypuzzle){
+            let emptyPuzzle = puzzleObj.emptypuzzle
+            let answeredPuzzle = puzzleObj.answeredpuzzle
+            // console.log("hello", emptyPuzzle)
+            setEmptyPuzzle(emptyPuzzle)
+            setPuzzleState(emptyPuzzle)
+            setAnsweredPuzzle(answeredPuzzle)
+            tokenCreator(emptyPuzzle, emptyPuzzle, answeredPuzzle)
+        }     
         
-
-        tokenCreator(initialState, puzzleState, boardSolution)
     },[puzzleObj])
     
+    function holdNumber(event){
+        console.log(event.key)
+        let numbers = '123456789'
+        if(numbers.includes(event.key))
+        {
+            let state = structuredClone(puzzleState)
+            let answer = structuredClone(answeredPuzzle)
+            
+            const [row,column] = targetCoordinates
+            console.log("answer, ", answer[row][column]," event.key ", event.key)
+            if(answer[row][column] == event.key){
+                state[row][column] = +event.key
+                setPuzzleState(state)
+            }else{
+                console.log("you're wrong you dunce.")
+            }
+            
+        }
+    }
+
+console.log(targetCoordinates)
+
     return(
         // <div className='flex-box'>
-            <div className="puzzle">
+            <div className="puzzle" tabIndex='0' onKeyDown={holdNumber}>
                 {
-                    !puzzleState[0][0]?<div>There's no data</div> :
+                    !puzzleState || !puzzleState[0]?<div>There's no data</div> :
                     puzzleState.map((row, index)=>{
                         return(
-                            <div className='puzzle__row'>
+                            <div   className='puzzle__row'>
                                 {
                                     row.map((column, idx)=>{
                                         return(
-                                            <div className='puzzle__number-box'>  {column}  </div>
+                                            <div onClick={(event)=>{ setTargetCoordinates([index,idx])}} className='puzzle__number-box'>  {column === 'X'? `_` :column}  </div>
                                         )
                                     })
                                 }

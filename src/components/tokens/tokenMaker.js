@@ -1,5 +1,5 @@
-export const tokenMaker = (initialState,puzzleState, boardSolution) =>{
-    if(initialState) localStorage.setItem("initialState",JSON.stringify({initialState}))
+export const tokenMaker = (emptyPuzzle,puzzleState, answeredPuzzle) =>{
+    if(emptyPuzzle) localStorage.setItem("emptyPuzzle",JSON.stringify({emptyPuzzle}))
     if(puzzleState) localStorage.setItem("puzzleState",JSON.stringify({puzzleState}))
-    if(boardSolution) localStorage.setItem("boardSolution",JSON.stringify({boardSolution}))
+    if(answeredPuzzle) localStorage.setItem("answeredPuzzle",JSON.stringify({answeredPuzzle}))
 }
