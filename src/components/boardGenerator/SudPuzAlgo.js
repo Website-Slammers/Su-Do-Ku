@@ -14,8 +14,8 @@
 
 //}
 
-import { assessAll } from "./assess/assessAll";
-import {squareAssess} from './assess/SquareAssess'
+import { assessAll } from "../assess/assessAll";
+import {squareAssess} from '../assess/SquareAssess'
 
 const sudPuzAlgo =(gridArray)=>{
     let numberOfBlocksRemoved = 0;
@@ -57,7 +57,7 @@ const sudPuzAlgo =(gridArray)=>{
             numberOfBlocksRemoved += 1
             
         }   
-        console.log("number of blocks removed ", numberOfBlocksRemoved)
+        // console.log("number of blocks removed ", numberOfBlocksRemoved)
     }
 }
 
@@ -103,7 +103,7 @@ const pickingAlgo = (rowArray)=>{
         return rowArray
     }
     //picks a random location 
-    console.log("row array", rowArray);
+    // console.log("row array", rowArray);
     let rowSelect = Math.floor(Math.random()*8.9999999);
     let rowIndex = rowSelect
     if(rowArray[rowSelect] >= arrayMean ){
@@ -140,11 +140,6 @@ const meanOfArray = (rowArray) =>{
     return roundedValue
 }
 
-
-
-
-
-
 // ░░░░░░░░░▄░░░░░░░░░░░░░░▄░░░░
 // ░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌░░░
 // ░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐░░░
@@ -164,7 +159,4 @@ const meanOfArray = (rowArray) =>{
 // ░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀░░░
 // ░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀░░░░░
 // ░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░
-
-
-
 export default sudPuzAlgo
