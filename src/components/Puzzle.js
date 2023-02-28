@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import sudGenerator from './boardGenerator/SudGenerator'
-import sudValidator from './boardGenerator/SudValidator'
-import sudPuzAlgo from './boardGenerator/SudPuzAlgo'
 import { tokenCreator } from './tokens/tokenCreator'
 import { getPuzzleById } from './api/puzzle'
+import  sudGenerator  from './boardGenerator/SudGenerator'
+import sudPuzAlgo from './boardGenerator/SudPuzAlgo'
 
 
 const Puzzle =()=>{
+    let difficulty = 1
+    const [answerIterator, setAnswerIterator] = useState(0)
     const [targetCoordinates, setTargetCoordinates] = useState([])
     const [puzzleObj, setPuzzleObj] = useState({})
     const [emptyPuzzle, setEmptyPuzzle] = useState([])
@@ -30,7 +31,16 @@ const Puzzle =()=>{
         const puzzleData = await getPuzzleById(id)
         setPuzzleObj(puzzleData)
         }catch(error){
-            console.log(error)
+            const answeredPuzzle = sudGenerator()
+            const emptyPuzzle = JSON.parse(JSON.stringify(answeredPuzzle))
+            emptyPuzzle = sudPuzAlgo(emptyPuzzle);
+            console.log('api not found, generating puzzle seperately')
+            setPuzzleObj({
+                'id':999,
+                'puzzletype':'easy',
+                'answeredpuzzle':answeredPuzzle,
+                'emptypuzzle':emptyPuzzle
+            })
         }
     }
 
@@ -64,6 +74,14 @@ const Puzzle =()=>{
         }     
         
     },[puzzleObj])
+
+    useEffect(()=>{
+        console.log(answerIterator)
+        if(answerIterator == difficulty){
+            console.log('You won!!!')
+            setAnswerIterator(0);
+        }
+    },[answerIterator])
     
     function holdNumber(event){
         console.log(event.key)
@@ -78,6 +96,8 @@ const Puzzle =()=>{
             if(answer[row][column] == event.key){
                 state[row][column] = +event.key
                 setPuzzleState(state)
+                setAnswerIterator(answerIterator+1)
+                console.log(answerIterator);
             }else{
                 console.log("you're wrong you dunce.")
             }
