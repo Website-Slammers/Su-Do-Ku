@@ -14,6 +14,8 @@
 
 //}
 
+//new note to myself if I make the algorythm unable to remove a number if it is the last number in a 2x2 of that type in either column or row.(as in, location 0,0, 0,3 or 0,2 0,3 or 0,1 0,2
+
 import { assessAll } from "../assess/assessAll";
 import {squareAssess} from '../assess/SquareAssess'
 
