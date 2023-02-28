@@ -3,6 +3,7 @@ import { tokenCreator } from './tokens/tokenCreator'
 import { getPuzzleById } from './api/puzzle'
 import  {sudGenerator}  from './boardGenerator/SudGenerator'
 import {sudPuzAlgo} from './boardGenerator/SudPuzAlgo'
+import { sudValidator } from './boardGenerator/SudValidator'
 
 
 const Puzzle =()=>{
@@ -32,16 +33,22 @@ const Puzzle =()=>{
         if(puzzleData) setPuzzleObj(puzzleData)
         else{
             console.log('api not found, generating puzzle seperately')
-            const answeredPuzzle = sudGenerator()
-            let emptyPuzzle = JSON.parse(JSON.stringify(answeredPuzzle))
-            emptyPuzzle = sudPuzAlgo(emptyPuzzle);
-           
-            setPuzzleObj({
-                'id': 999,
-                'puzzletype':'easy',
-                'answeredpuzzle':answeredPuzzle,
-                'emptypuzzle':emptyPuzzle
-            })}
+
+            let answeredPuzzle = sudGenerator()
+            if(!sudValidator(answeredPuzzle)){
+                answeredPuzzle = sudGenerator()
+            }
+
+                let emptyPuzzle = JSON.parse(JSON.stringify(answeredPuzzle))
+                emptyPuzzle = sudPuzAlgo(emptyPuzzle);
+            
+                setPuzzleObj({
+                    'id': 999,
+                    'puzzletype':'easy',
+                    'answeredpuzzle':answeredPuzzle,
+                    'emptypuzzle':emptyPuzzle
+                })
+            }
         }catch(error){
             console.log(error)
         }
