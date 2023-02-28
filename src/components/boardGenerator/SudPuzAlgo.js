@@ -17,7 +17,7 @@
 import { assessAll } from "../assess/assessAll";
 import {squareAssess} from '../assess/SquareAssess'
 
-const sudPuzAlgo =(gridArray)=>{
+export const sudPuzAlgo =(gridArray)=>{
     let numberOfBlocksRemoved = 0;
     let easy = 43;
     let medium =52;
@@ -59,6 +59,7 @@ const sudPuzAlgo =(gridArray)=>{
         }   
         // console.log("number of blocks removed ", numberOfBlocksRemoved)
     }
+    return gridArray
 }
 
 const rowSelector = (gridArray)=>{
