@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom'
 
 import { tokenCreator } from './tokens/tokenCreator'
 import { getPuzzleById } from './api/puzzle'
-import  {sudGenerator}  from './boardGenerator/SudGenerator'
-import {sudPuzAlgo} from './boardGenerator/SudPuzAlgo'
+import { sudGenerator }  from './boardGenerator/SudGenerator'
+import { sudPuzAlgo } from './boardGenerator/SudPuzAlgo'
 import { sudValidator } from './boardGenerator/SudValidator'
 
 
 const Puzzle =()=>{
-    const [winToggle, setWinToggle] = useState(false)
-    let difficulty = 1
+    let difficulty = 43
     const [winningClass, setWinningClass] = useState("u-hidden")
     const [answerIterator, setAnswerIterator] = useState(0)
     const [targetCoordinates, setTargetCoordinates] = useState([])
@@ -33,10 +32,11 @@ const Puzzle =()=>{
         // console.log(puzzleState);
     async function getAndParsePuzzle(){
         try{
-        let id = Math.ceil(Math.random()*366)
-        const puzzleData = await getPuzzleById(id)
-        if(puzzleData) setPuzzleObj(puzzleData)
-        else{
+            //this code pulls the puzzles from the API, do not DELETE IT
+        // let id = Math.ceil(Math.random()*366)
+        // const puzzleData = await getPuzzleById(id)
+        // if(puzzleData) setPuzzleObj(puzzleData)
+        // else{
             console.log('api not found, generating puzzle seperately')
 
             let answeredPuzzle = sudGenerator()
@@ -53,15 +53,12 @@ const Puzzle =()=>{
                     'answeredpuzzle':answeredPuzzle,
                     'emptypuzzle':emptyPuzzle
                 })
-            }
+            // }
         }catch(error){
             console.log(error)
         }
     }
 
-    useEffect(()=>{
-        
-    })
 
     useEffect(()=>{
         // console.log('hellosss')
@@ -94,14 +91,6 @@ const Puzzle =()=>{
         
     },[puzzleObj])
 
-    useEffect(()=>{
-        // console.log(answerIterator)
-        if(answerIterator == difficulty){
-            console.log('You won!!!')
-            setAnswerIterator(0);
-        }
-    },[answerIterator])
-    
     function holdNumber(event){
         // console.log(event.key)
         let numbers = '123456789'
@@ -124,6 +113,29 @@ const Puzzle =()=>{
         }
     }
 
+    useEffect(()=>{
+        // console.log(answerIterator)
+        if(answerIterator == difficulty){
+            console.log('You won!!!')
+            setWinningClass("none") //clearly I don't know what I should set this to
+            setAnswerIterator(0);
+        }
+    },[answerIterator])
+    
+    const resetBoard = ()=>{
+        localStorage.removeItem('puzzleState')
+        localStorage.removeItem('emptyPuzzle')
+        localStorage.removeItem('answeredPuzzle');
+        getAndParsePuzzle()
+        setWinningClass("u-hidden")
+    }
+
+
+
+
+   
+
+
 // console.log(targetCoordinates)
 
     return(
@@ -137,7 +149,7 @@ const Puzzle =()=>{
                                 {
                                     row.map((column, idx)=>{
                                         return(
-                                            <div onClick={(event)=>{ setTargetCoordinates([index,idx])}} className='puzzle__number-box'>  {column === 'X'? `_` :column}  </div>
+                                            <div onClick={(event)=>{ setTargetCoordinates([index,idx])}} className='puzzle__number-box'>  {column === 'X'? `.` :column}  </div>
                                         )
                                     })
                                 }
@@ -147,7 +159,7 @@ const Puzzle =()=>{
                 }
             <div className={winningClass}>
                 <span>Great Job!</span>
-                <Link to="/play">Play Again</Link>
+                <button onClick={resetBoard}>Play Again</button>
             </div>
             </div>
 
