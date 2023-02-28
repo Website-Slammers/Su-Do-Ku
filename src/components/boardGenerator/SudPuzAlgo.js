@@ -32,7 +32,7 @@ export const sudPuzAlgo =(gridArray)=>{
     //this logic is passing the gridArray into the row selector finding a location and returning a row
     //the literally impossible chance of hitting a 9 exactly prevented
     let rowStep =0
-    while(numberOfBlocksRemoved < medium){
+    while(numberOfBlocksRemoved < easy){
         
 
         //remove 1 from each row  (9)
