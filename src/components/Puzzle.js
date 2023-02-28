@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+
+
 import { tokenCreator } from './tokens/tokenCreator'
 import { getPuzzleById } from './api/puzzle'
 import  {sudGenerator}  from './boardGenerator/SudGenerator'
@@ -8,6 +11,7 @@ import { sudValidator } from './boardGenerator/SudValidator'
 
 const Puzzle =()=>{
     let difficulty = 1
+    const [winningClass, setWinningClass] = useState("u-hidden")
     const [answerIterator, setAnswerIterator] = useState(0)
     const [targetCoordinates, setTargetCoordinates] = useState([])
     const [puzzleObj, setPuzzleObj] = useState({})
@@ -136,8 +140,11 @@ const Puzzle =()=>{
                         )
                     })
                 }
+            <div className={winningClass}>
+                <span>Great Job!</span>
+                <Link to="/play">Play Again</Link>
             </div>
-        // </div>
+            </div>
 
     )
 }

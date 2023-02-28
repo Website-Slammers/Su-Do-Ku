@@ -11,10 +11,10 @@
   // border-radius: 3px;
   overflow: hidden;
   
-    //Remove Select Highlight
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    // //Remove Select Highlight
+    // -webkit-user-select: none; /* Safari */
+    // -ms-user-select: none; /* IE 10 and IE 11 */
+    // user-select: none; /* Standard syntax */
 
 
   &__textbox {
@@ -24,6 +24,11 @@
     transform: translate(-50%, -50%);
     text-align: center;
     min-width: 300px;
+    cursor: pointer;
+
+    & a {
+      cursor: pointer;
+    }
   }
 
   @media only screen and (max-width: $bp-smallest) {
