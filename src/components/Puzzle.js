@@ -7,7 +7,8 @@ import { sudValidator } from './boardGenerator/SudValidator'
 
 
 const Puzzle =()=>{
-    let difficulty = 1
+    let difficulty = 43
+    const [winToggle, setWinToggle] = useState(false)
     const [answerIterator, setAnswerIterator] = useState(0)
     const [targetCoordinates, setTargetCoordinates] = useState([])
     const [puzzleObj, setPuzzleObj] = useState({})
@@ -53,6 +54,10 @@ const Puzzle =()=>{
             console.log(error)
         }
     }
+
+    useEffect(()=>{
+        
+    })
 
     useEffect(()=>{
         // console.log('hellosss')
