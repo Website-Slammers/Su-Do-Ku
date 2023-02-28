@@ -5,7 +5,7 @@ import { blockAssessor } from "../assess/blockAssess";
 import { blockAssessorMinusRow } from "../assess/block-rowAssess";
 import { assessAll } from "../assess/assessAll";
 
-const sudGenerator=()=>{
+export const sudGenerator=()=>{
     let gridArray = []
     let tempArray = [1,2,3,4,5,6,7,8,9];
     let currentRow = []

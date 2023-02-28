@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { tokenCreator } from './tokens/tokenCreator'
 import { getPuzzleById } from './api/puzzle'
-import  sudGenerator  from './boardGenerator/SudGenerator'
-import sudPuzAlgo from './boardGenerator/SudPuzAlgo'
+import  {sudGenerator}  from './boardGenerator/SudGenerator'
+import {sudPuzAlgo} from './boardGenerator/SudPuzAlgo'
 
 
 const Puzzle =()=>{
@@ -29,18 +29,21 @@ const Puzzle =()=>{
         try{
         let id = Math.ceil(Math.random()*366)
         const puzzleData = await getPuzzleById(id)
-        setPuzzleObj(puzzleData)
-        }catch(error){
-            const answeredPuzzle = sudGenerator()
-            const emptyPuzzle = JSON.parse(JSON.stringify(answeredPuzzle))
-            emptyPuzzle = sudPuzAlgo(emptyPuzzle);
+        if(puzzleData) setPuzzleObj(puzzleData)
+        else{
             console.log('api not found, generating puzzle seperately')
+            const answeredPuzzle = sudGenerator()
+            let emptyPuzzle = JSON.parse(JSON.stringify(answeredPuzzle))
+            emptyPuzzle = sudPuzAlgo(emptyPuzzle);
+           
             setPuzzleObj({
-                'id':999,
+                'id': 999,
                 'puzzletype':'easy',
                 'answeredpuzzle':answeredPuzzle,
                 'emptypuzzle':emptyPuzzle
-            })
+            })}
+        }catch(error){
+            console.log(error)
         }
     }
 
