@@ -24,7 +24,7 @@ const Puzzle =()=>{
         [1,2,3,4,5,6,7,8,9],
         [1,2,3,4,5,6,7,8,9]])
 
-        console.log(puzzleState);
+        // console.log(puzzleState);
     async function getAndParsePuzzle(){
         try{
         let id = Math.ceil(Math.random()*366)
@@ -65,7 +65,7 @@ const Puzzle =()=>{
     },[])
     //token maker
     useEffect(()=>{
-        console.log("what is happening", puzzleObj)
+        // console.log("what is happening", puzzleObj)
         if(puzzleObj.emptypuzzle){
             let emptyPuzzle = puzzleObj.emptypuzzle
             let answeredPuzzle = puzzleObj.answeredpuzzle
@@ -79,7 +79,7 @@ const Puzzle =()=>{
     },[puzzleObj])
 
     useEffect(()=>{
-        console.log(answerIterator)
+        // console.log(answerIterator)
         if(answerIterator == difficulty){
             console.log('You won!!!')
             setAnswerIterator(0);
@@ -87,7 +87,7 @@ const Puzzle =()=>{
     },[answerIterator])
     
     function holdNumber(event){
-        console.log(event.key)
+        // console.log(event.key)
         let numbers = '123456789'
         if(numbers.includes(event.key))
         {
@@ -95,12 +95,12 @@ const Puzzle =()=>{
             let answer = structuredClone(answeredPuzzle)
             
             const [row,column] = targetCoordinates
-            console.log("answer, ", answer[row][column]," event.key ", event.key)
+            // console.log("answer, ", answer[row][column]," event.key ", event.key)
             if(answer[row][column] == event.key){
                 state[row][column] = +event.key
                 setPuzzleState(state)
                 setAnswerIterator(answerIterator+1)
-                console.log(answerIterator);
+                // console.log(answerIterator);
             }else{
                 console.log("you're wrong you dunce.")
             }
@@ -108,7 +108,7 @@ const Puzzle =()=>{
         }
     }
 
-console.log(targetCoordinates)
+// console.log(targetCoordinates)
 
     return(
         // <div className='flex-box'>
