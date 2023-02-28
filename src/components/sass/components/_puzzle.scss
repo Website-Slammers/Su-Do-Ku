@@ -85,4 +85,40 @@
       border-right: 3px solid $color-puzzle-edge;
     }
   }
+
+  &__win-box {
+
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: $font-header;
+
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(pink, 1),
+      // rgba(pink, .8),
+      rgba(yellowgreen, .8));
+
+    & span {
+      display: block;
+      font-size: 4rem;
+    }
+
+    & a {
+      text-decoration: none;
+      color: white;
+      padding: 1rem 2rem;
+      background-color: darken(pink, 10);
+      border-radius: 2rem;
+    }
+
+  }
 }
