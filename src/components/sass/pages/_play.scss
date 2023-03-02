@@ -3,15 +3,19 @@
   height: 100svh;
 
   height: 100vh;
-  background-image: 
-  // linear-gradient(
-  //   to right bottom,
-  //   rgba(pink, .8),
-  //   rgba(yellowgreen, .8)),
-    url("https://i.imgur.com/fQZciER.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
+
+
+  @media only screen and (max-width: $bp-large) {  
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(pink, .2),
+      rgba(yellowgreen, .2)),
+      url("https://i.imgur.com/fQZciER.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
 
   overflow: scroll;
 
