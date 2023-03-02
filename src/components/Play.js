@@ -49,7 +49,7 @@ function Play() {
 
       </div> {/* Play END */}
 
-      <Footer />
+
 
     </div>
   )
